@@ -152,7 +152,7 @@ public class StartApplicationBiblioteca {
 			funzione="[PL] = {PRENDERE LIBRO}";
 			controllo="PL";
 			LibroPresoDaAssociato libroPresoDaAssociato=new LibroPresoDaAssociato();
-			System.out.println("[INDICARE  id ASSOCIATO PERSONALE]:");
+			System.out.println("[INDICARE  idASSOCIATO PERSONALE]:");
             scan=new Scanner(System.in);
             int  idAssociatoPersonale=scan.nextInt();
            
@@ -172,10 +172,7 @@ public class StartApplicationBiblioteca {
             }
             libroPresoDaAssociato.setIdLibro(prendereLibro);
             biblioteca.getListaLibroPresoDaAssociato().add(libroPresoDaAssociato);
-            
             biblioteca.getListaLibri().get(prendereLibro-1).setIdLibro(0); 
-            
-           
             System.out.println("[HAI PRESO IL LIBRO]:"+biblioteca.getListaLibri().get(prendereLibro-1).getTitolo());
  
             System.out.println(funzione);
@@ -186,6 +183,38 @@ public class StartApplicationBiblioteca {
 		case "RL":
 			funzione="[RL] = {RESTITUZIONE LIBRO}";
 			controllo="RL";
+			libroPresoDaAssociato=new LibroPresoDaAssociato();
+			
+			System.out.println("[INDICARE  idASSOCIATO PERSONALE]:");
+            scan=new Scanner(System.in);
+            idAssociatoPersonale=scan.nextInt();
+           
+         
+			
+            System.out.println(biblioteca.getListaAssociati().get(idAssociatoPersonale-1)+"[INDICARE QUALE LIBRO DESIDERA RESTITUIRE DALLA LIBRERIA DIGITALE PERSONALE id]:");
+           Scanner scan1=new Scanner(System.in);
+            int  restituireLibro=scan1.nextInt();
+			
+           for(int i=0;i<biblioteca.getListaLibroPresoDaAssociato().size();i++) {
+            	if(idAssociatoPersonale==biblioteca.getListaLibroPresoDaAssociato().get(i).getIdAssociato()) {
+            		if(restituireLibro==biblioteca.getListaLibroPresoDaAssociato().get(i).getIdLibro()) {
+            			biblioteca.getListaLibroPresoDaAssociato().remove(i);
+            			biblioteca.getListaLibri().get(restituireLibro-1).setIdLibro(restituireLibro);
+            			
+            		}
+            		
+            	}
+        	    
+           }
+        	   
+//        	   System.out.println("[LIBRO NON PRESENTE NELLA LIBRERIA PERSONALE!]");
+//             	System.out.println("[INDICARE QUALE LIBRO DESIDERA RESTITUIRE DALLA LIBRERIA DIGITALE PERSONALE id]:");
+//                scan=new Scanner(System.in);
+//                restituireLibro=scan.nextInt();
+            
+			
+			
+			 System.out.println("[HAI RESTITUITO IL LIBRO]:"+biblioteca.getListaLibri().get(restituireLibro-1).getTitolo());            
 			System.out.println(funzione);
 			break;
 			
@@ -210,12 +239,6 @@ public class StartApplicationBiblioteca {
 	
 	}
 
-	
-	
-		
-		
-	
-		
 	}	   
 
 
