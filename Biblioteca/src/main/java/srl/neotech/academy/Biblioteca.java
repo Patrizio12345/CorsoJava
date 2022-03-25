@@ -9,12 +9,12 @@ public class Biblioteca {
 	
   private ArrayList<Libro> listaLibri=new ArrayList<Libro>();
   private ArrayList<Associato> listaAssociati=new ArrayList<Associato>();
-  private ArrayList<Integer> listaIdLibripresi=new ArrayList<>();
+ 
    
 	public Biblioteca() {
 		listaLibri=new ArrayList<Libro>();
 		listaAssociati=new ArrayList<Associato>();
-		listaIdLibripresi=new ArrayList<Integer>();
+		
 	}
 
 	
@@ -44,36 +44,7 @@ public class Biblioteca {
 	}
 
 
-	public ArrayList<Integer> getListaIdLibripresi() {
-		return listaIdLibripresi;
-	}
-
-
-	public void setListaIdLibripresi(ArrayList<Integer> listaIdLibripresi) {
-		this.listaIdLibripresi = listaIdLibripresi;
-	}
-
-
 	
-
-
-
-//	private static void Connection(ArrayList<Libro> fromListaLibri, ArrayList<Libro> toListaLibriPresi) {
-//		// TODO Auto-generated method stub
-//		
-//	}
-//
-//	private static Libro toData(int i) {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-//
-//	private static Libro fromData(int i) {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-//	
-//		
 
 
 	
