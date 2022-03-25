@@ -1,11 +1,11 @@
 package srl.neotech.academy;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
+
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
+
 
 import org.ajbrown.namemachine.Name;
 import org.ajbrown.namemachine.NameGenerator;
@@ -42,8 +42,7 @@ public class StartApplicationBiblioteca {
 			associato.setIdAssociato(i);
 			associato.setNominativo(namegenerator.generateName().toString());
 			associato.setStato(Stato.generateRandomStato());
-			associato.setListaIdLibriPresi(associato.getListaIdLibriPresi());
-		    biblioteca.getListaAssociati().add(associato);
+			biblioteca.getListaAssociati().add(associato);
 			}
 		String controllo="XX";
 		String funzione = null;
@@ -54,6 +53,7 @@ public class StartApplicationBiblioteca {
 		Scanner scanFunzione=new Scanner(System.in);
 		System.out.println("[Inserire comando appropriato per la rispettiva funzione]:");
 		String comando=scanFunzione.next();
+		
 		
 		
 		switch (comando) { 
@@ -151,25 +151,33 @@ public class StartApplicationBiblioteca {
 		case "PL":
 			funzione="[PL] = {PRENDERE LIBRO}";
 			controllo="PL";
-			libro=new Libro();
-			associato=new Associato();
-			 System.out.println("[INDICARE QUALE LIBRO DESIDERA PRENDERE DALLA LIBRERIA DIGITALE id]:");
+			LibroPresoDaAssociato libroPresoDaAssociato=new LibroPresoDaAssociato();
+			System.out.println("[INDICARE  id ASSOCIATO PERSONALE]:");
+            scan=new Scanner(System.in);
+            int  idAssociatoPersonale=scan.nextInt();
+           
+            libroPresoDaAssociato.setIdAssociato(idAssociatoPersonale);
+            
+            System.out.println(biblioteca.getListaAssociati().get(idAssociatoPersonale-1)+"[INDICARE QUALE LIBRO DESIDERA PRENDERE DALLA LIBRERIA DIGITALE id]:");
             scan=new Scanner(System.in);
             int  prendereLibro=scan.nextInt();
-            libro.setTitolo(rnd.next());
-    		libro.setAutore(namegenerator.generateName().toString());
-    		libro.setGenere(Genere.generateRandomGenere());
-    		libro.setScaffale("{Poesia,Epica,Narrativa}");
-    		
-            biblioteca.getListaLibri().get(prendereLibro-1).setIdLibro(0);
             
-            for(int i=1;i<prendereLibro;i++) {
-            	associato.setListaIdLibriPresi(i+1);
-            	//associato.getListaIdLibriPresi().add(libro);
-            	
-            	
-            }System.out.println("[LIBRO PRESO]:"+associato.getListaIdLibriPresi()+libro);
             
+            while(biblioteca.getListaLibri().get(prendereLibro-1).getIdLibro()==0) {
+            	System.out.println("[LIBRO NON DISPONIBILE!]");
+            	System.out.println("[INDICARE QUALE LIBRO DESIDERA PRENDERE DALLA LIBRERIA DIGITALE id]:");
+                scan=new Scanner(System.in);
+                prendereLibro=scan.nextInt();
+
+            }
+            libroPresoDaAssociato.setIdLibro(prendereLibro);
+            biblioteca.getListaLibroPresoDaAssociato().add(libroPresoDaAssociato);
+            
+            biblioteca.getListaLibri().get(prendereLibro-1).setIdLibro(0); 
+            
+           
+            System.out.println("[HAI PRESO IL LIBRO]:"+biblioteca.getListaLibri().get(prendereLibro-1).getTitolo());
+ 
             System.out.println(funzione);
 			
 			break;
