@@ -1,6 +1,7 @@
 package srl.neotech.academy;
 
 
+import java.util.EnumMap;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
@@ -25,16 +26,14 @@ public class StartApplicationBiblioteca {
 		
 		Random random=new Random();
 		
-
-		 
-		
+        
 		for(int i=1;i<=100;i++) {
 		Libro libro=new Libro();
 		libro.setIdLibro(i);
 		libro.setTitolo(rnd.next());
 		libro.setAutore(namegenerator.generateName().toString());
 		libro.setGenere(Genere.generateRandomGenere());
-		libro.setScaffale("{Poesia,Epica,Narrativa}");
+		libro.setScaffale(Scaffale.generateRandomScaffale());
 		biblioteca.getListaLibri().add(libro);
 		}
 		for(int i=1;i<=100;i++) {
@@ -64,7 +63,7 @@ public class StartApplicationBiblioteca {
 			libro.setTitolo(rnd.next());
 			libro.setAutore(namegenerator.generateName().toString());
 			libro.setGenere(Genere.generateRandomGenere());
-			libro.setScaffale("{Poesia,Epica,Narrativa}");
+			libro.setScaffale(Scaffale.generateRandomScaffale());
 			biblioteca.getListaLibri().add(libro);
 			controllo="CL";
 			System.out.println("[LIBRO AGGIUNTO CON SUCCESSO!]:"+libro);
@@ -79,7 +78,7 @@ public class StartApplicationBiblioteca {
 			libro.setTitolo(rnd.next());
 			libro.setAutore(namegenerator.generateName().toString());
 			libro.setGenere(Genere.generateRandomGenere());
-			libro.setScaffale("{Poesia,Epica,Narrativa}");
+			libro.setScaffale(Scaffale.generateRandomScaffale());
 			
 			System.out.println("[QUALE LIBRO DESIDERA RIMUOVERE id]:");
 			Scanner scan=new Scanner(System.in);

@@ -10,11 +10,14 @@ public class Biblioteca {
   private ArrayList<Libro> listaLibri=new ArrayList<Libro>();
   private ArrayList<Associato> listaAssociati=new ArrayList<Associato>();
   private ArrayList<LibroPresoDaAssociato> listaLibroPresoDaAssociato =new ArrayList<LibroPresoDaAssociato>();
-   
+  
+  
+  
 	public Biblioteca() {
 		listaLibri=new ArrayList<Libro>();
 		listaAssociati=new ArrayList<Associato>();
 		listaLibroPresoDaAssociato =new ArrayList<LibroPresoDaAssociato>();
+		
 	}
 
 	
@@ -54,7 +57,7 @@ public class Biblioteca {
 	}
 
 
-
+	
 	
 
 	

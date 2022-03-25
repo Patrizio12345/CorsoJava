@@ -1,5 +1,6 @@
 package srl.neotech.academy;
 
+import java.util.EnumMap;
 import java.util.Enumeration;
 
 public class Libro{
@@ -8,7 +9,7 @@ public class Libro{
 	private String titolo;
 	private String autore;
 	private Genere genere;
-	private String scaffale;
+	private Scaffale scaffale;
 	
 	
 	
@@ -37,10 +38,20 @@ public class Libro{
 	public void setGenere(Genere genere) {
 		this.genere = genere;
 	}
-	public String getScaffale() {
-		return " [Scaffale]:"+scaffale;
+	
+	
+	
+
+
+
+
+
+
+	
+	public Scaffale getScaffale() {
+		return scaffale;
 	}
-	public void setScaffale(String scaffale) {
+	public void setScaffale(Scaffale scaffale) {
 		this.scaffale = scaffale;
 	}
 	@Override
