@@ -1,6 +1,8 @@
-/home/neotech/Workspaces/Biblioteca/src/main/java/srl/neotech/academy/Libro.java
-/home/neotech/Workspaces/Biblioteca/src/main/java/srl/neotech/academy/Genere.java
-/home/neotech/Workspaces/Biblioteca/src/main/java/srl/neotech/academy/Stato.java
-/home/neotech/Workspaces/Biblioteca/src/main/java/srl/neotech/academy/Biblioteca.java
-/home/neotech/Workspaces/Biblioteca/src/main/java/srl/neotech/academy/Associato.java
-/home/neotech/Workspaces/Biblioteca/src/main/java/srl/neotech/academy/StartApplicationBiblioteca.java
+/home/neotech/GitClones/Patrizio/CorsoJava/Biblioteca/src/main/java/srl/neotech/academy/Libro.java
+/home/neotech/GitClones/Patrizio/CorsoJava/Biblioteca/src/main/java/srl/neotech/academy/StartApplicationBiblioteca.java
+/home/neotech/GitClones/Patrizio/CorsoJava/Biblioteca/src/main/java/srl/neotech/academy/Associato.java
+/home/neotech/GitClones/Patrizio/CorsoJava/Biblioteca/src/main/java/srl/neotech/academy/Genere.java
+/home/neotech/GitClones/Patrizio/CorsoJava/Biblioteca/src/main/java/srl/neotech/academy/LibroPresoDaAssociato.java
+/home/neotech/GitClones/Patrizio/CorsoJava/Biblioteca/src/main/java/srl/neotech/academy/Stato.java
+/home/neotech/GitClones/Patrizio/CorsoJava/Biblioteca/src/main/java/srl/neotech/academy/Scaffale.java
+/home/neotech/GitClones/Patrizio/CorsoJava/Biblioteca/src/main/java/srl/neotech/academy/Biblioteca.java
