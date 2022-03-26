@@ -1,9 +1,17 @@
 package srl.neotech.academy;
 
+import org.kohsuke.randname.RandomNameGenerator;
+
 public class StratApplicationProva {
 
 	public static void main(String[] args) {
-		System.out.println("Hellooo World!!");
+		RandomNameGenerator rnd = new RandomNameGenerator();
+		
+		System.out.println(rnd.next());
+		
+		
+		
+		
 	}
 
 }
