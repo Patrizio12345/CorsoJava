@@ -1,6 +1,8 @@
 package srl.neotech.academy;
 
+import java.nio.charset.Charset;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class StartApplicationAereoporto {
@@ -10,6 +12,16 @@ public class StartApplicationAereoporto {
 		Aereoporto aereoporto=new Aereoporto();
         
 		ArrayList<Aereo> listaAerei=new ArrayList<Aereo>();
+		//random Alphanumeric id per Passeggero
+		 int leftLimit=48;
+		  int rightLimit=122;
+		  int targetStringLength=10;
+		  Random random=new Random();
+		   String generateRandomStringId = random.ints(leftLimit, rightLimit + 1)
+				      .filter(i -> (i <= 57 || i >= 65) && (i <= 90 || i >= 97))
+				      .limit(targetStringLength)
+				      .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
+				      .toString();
 		
 		
 		for(Aereo aereo:listaAerei) {
@@ -31,7 +43,7 @@ public class StartApplicationAereoporto {
 				passeggero.setHaFiore(false);
 				passeggero.setHaGiornale(true);
 				passeggero.setSessoPasseggero(SessoPasseggero.generateRandomSesso());
-				passeggero.setIdUnivocoPasseggero(ThreadLocalRandom.current().nextInt(i + 1));
+				passeggero.setIdUnivocoPasseggero((generateRandomStringId + 1));
 				aereoporto.getListaAerei().add(aereo);
 				aereo.getListaPasseggeri().add(passeggero);
 			}

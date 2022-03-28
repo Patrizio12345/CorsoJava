@@ -2,7 +2,7 @@ package srl.neotech.academy;
 
 public class Passeggero {
 
-	private Integer idUnivocoPasseggero;
+	private String idUnivocoPasseggero;
 	private SessoPasseggero sessoPasseggero;
 	private Integer eta;
 	private ClasseViaggiatore classeViaggiatore;
@@ -15,10 +15,10 @@ public class Passeggero {
 	
 	
 	
-	public Integer getIdUnivocoPasseggero() {
+	public String getIdUnivocoPasseggero() {
 		return idUnivocoPasseggero;
 	}
-	public void setIdUnivocoPasseggero(Integer idUnivocoPasseggero) {
+	public void setIdUnivocoPasseggero(String idUnivocoPasseggero) {
 		this.idUnivocoPasseggero = idUnivocoPasseggero;
 	}
 	public SessoPasseggero getSessoPasseggero() {
