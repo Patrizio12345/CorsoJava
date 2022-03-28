@@ -3,6 +3,7 @@ package srl.neotech.academy;
 public class Passeggero {
 
 	private String idUnivocoPasseggero;
+	private String nominativo;
 	private SessoPasseggero sessoPasseggero;
 	private Integer eta;
 	private ClasseViaggiatore classeViaggiatore;
@@ -20,6 +21,13 @@ public class Passeggero {
 	}
 	public void setIdUnivocoPasseggero(String idUnivocoPasseggero) {
 		this.idUnivocoPasseggero = idUnivocoPasseggero;
+	}
+	
+	public String getNominativo() {
+		return nominativo;
+	}
+	public void setNominativo(String nominativo) {
+		this.nominativo = nominativo;
 	}
 	public SessoPasseggero getSessoPasseggero() {
 		return sessoPasseggero;

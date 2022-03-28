@@ -12,6 +12,37 @@
 <maven.compiler.target>16</maven.compiler.target>
 </properties>
 
+<dependencies>
+
+<dependency>
+    <groupId>org.ajbrown</groupId>
+    <artifactId>name-machine</artifactId>
+    <version>1.0.0</version>
+</dependency>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</dependencies>
+
+
+
+
+
+
 
   
   

@@ -1,13 +1,21 @@
 package srl.neotech.academy;
 
-import java.nio.charset.Charset;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
+
+import org.ajbrown.namemachine.Name;
+import org.ajbrown.namemachine.NameGenerator;
 
 public class StartApplicationAereoporto {
 
 	public static void main(String[] args) {
+		
+		NameGenerator nameGenerator = new NameGenerator();
+		List<Name> names = nameGenerator.generateNames( 5000 );
+		
+		
 		
 		Aereoporto aereoporto=new Aereoporto();
         
@@ -36,6 +44,7 @@ public class StartApplicationAereoporto {
 				aereo.setModello("Boeing Commercial Airplanes",747,660);
 				aereo.setVelocita( ThreadLocalRandom.current().nextInt(1, 10 + 1));
 				aereo.setDistanzaDallAreoporto( ThreadLocalRandom.current().nextInt(1, 500 + 1));
+				passeggero.setNominativo(nameGenerator.generateName().toString());
 				passeggero.setStatoPasseggero(StatoPasseggero.InAereoporto);
 				passeggero.setClasseViaggiatore(ClasseViaggiatore.EXCELSIOR);
 				passeggero.setEta(ThreadLocalRandom.current().nextInt(1, 70 + 1));
