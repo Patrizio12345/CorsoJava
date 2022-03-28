@@ -8,20 +8,19 @@ public class Aereoporto {
 	
 	public Aereo atterraggio(Aereo aereo) {
 		
-		aereo.setStatoAereo(StatoAereo.DECOLLATO);
-		
-		return aereo;
+		aereo.setStatoAereo(StatoAereo.IN_AVVICINAMENTO);
+		return aereo.atterraggio(aereo);
 	}
 	
 	public Aereo decollo(Aereo aereo) {
 		
 		aereo.setStatoAereo(StatoAereo.ATTERRATO);
-		return aereo;
+		return aereo.decollo(aereo);
 	}
 	
 	public Passeggero checkIn(Passeggero passeggero) {
 		
-		passeggero.setStatoPasseggero(StatoPasseggero.IMBARCATO);
+		passeggero.setStatoPasseggero(StatoPasseggero.InAereoporto);
 		return passeggero;
 	}
 	
