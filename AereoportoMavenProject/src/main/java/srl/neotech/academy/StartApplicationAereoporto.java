@@ -19,15 +19,16 @@ public class StartApplicationAereoporto {
 			aereo.setVelocita(0);
 			aereo.setDistanzaDallAreoporto(0);
 			aereoporto.getListaAerei().add(aereo);
-		}for(int j=0;j<200;j++ ) {
-			Aereo aereo=new Aereo();
-			aereo.setStatoAereo(StatoAereo.IN_AVVICINAMENTO);
-			aereoporto.getListaAerei().add(aereo);
-		}for(int p=0;p<1000;p++) {
-			Passeggero passeggero=new Passeggero();
-			aereoporto.checkIn(passeggero);
-			aereoporto.getListaPasseggeri().add(passeggero);
 		}
+			//		}for(int j=0;j<200;j++ ) {
+//			Aereo aereo=new Aereo();
+//			aereo.setStatoAereo(StatoAereo.IN_AVVICINAMENTO);
+//			aereoporto.getListaAerei().add(aereo);
+//		}for(int p=0;p<1000;p++) {
+//			Passeggero passeggero=new Passeggero();
+//			aereoporto.checkIn(passeggero);
+//			aereoporto.getListaPasseggeri().add(passeggero);
+//		}
 
 
 		

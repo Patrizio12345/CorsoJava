@@ -15,7 +15,7 @@ public class Aereoporto {
 	
 	public Aereo decollo(Aereo aereo) {
 		
-		aereo.setStatoAereo(StatoAereo.DECOLLATO);
+		aereo.setStatoAereo(StatoAereo.ATTERRATO);
 		return aereo;
 	}
 	

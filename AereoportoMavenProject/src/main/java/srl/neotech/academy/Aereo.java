@@ -11,13 +11,13 @@ public class Aereo extends Aereoporto implements IAereo{
 	private Integer velocita;
 	private StatoAereo statoAereo;
 	private Integer distanzaDallAreoporto;
-	private ArrayList<Passeggero> listaPasseggeri=new ArrayList<Passeggero>(); 
+	private ArrayList<Passeggero> passeggeri=new ArrayList<Passeggero>(); 
 
 	
 	
 	public Aereo(){
 		
-		listaPasseggeri=new ArrayList<Passeggero>(); 
+		passeggeri=new ArrayList<Passeggero>(); 
 		
 	}
 	
@@ -65,10 +65,10 @@ public class Aereo extends Aereoporto implements IAereo{
 		this.distanzaDallAreoporto = distanzaDallAreoporto;
 	}
 	public ArrayList<Passeggero> getListaPasseggeri() {
-		return this.listaPasseggeri;
+		return this.passeggeri;
 	}
 	public void setListaPasseggeri(ArrayList<Passeggero> listaPasseggeri) {
-		this.listaPasseggeri = listaPasseggeri;
+		this.passeggeri = listaPasseggeri;
 	}
 	
 	@Override
