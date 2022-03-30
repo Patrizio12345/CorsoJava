@@ -24,7 +24,10 @@ public class Aereoporto {
 			passeggero.setHaFiore(true);
 		}if(passeggero.getClassePasseggero().equals(ClassePasseggero.BUISNESS)) {
 			passeggero.setHaGiornale(true);
+		}if(passeggero.getClassePasseggero().equals(ClassePasseggero.BUISNESS.EXCELSIOR.TURISTA)) {
+			passeggero.setHaBagagli(true);
 		}
+		
 		return passeggero;
 	}
 	public Passeggero checkOut(Passeggero passeggero) {
@@ -35,6 +38,8 @@ public class Aereoporto {
 			passeggero.setHaFiore(true);
 		}if(passeggero.getClassePasseggero().equals(ClassePasseggero.BUISNESS)) {
 			passeggero.setHaGiornale(true);
+		}if(passeggero.getClassePasseggero().equals(ClassePasseggero.BUISNESS.EXCELSIOR.TURISTA)) {
+			passeggero.setHaBagagli(true);
 		}
 		return passeggero;
 	}

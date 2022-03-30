@@ -11,6 +11,8 @@ public class Passeggero {
 	private Boolean haFiore;
 	private Boolean haGiornale;
 	private StatoPasseggero statoPasseggero;
+	
+	
 
 	public Integer getIdUnivocoPasseggero() {
 		return idUnivocoPasseggero;
@@ -43,7 +45,7 @@ public class Passeggero {
 		this.haBagagli = haBagagli ;
 	}
 	public Boolean getHaChampagne() {
-		return haChampagne;
+		return  haChampagne;
 	}
 	public void setHaChampagne(Boolean haChampagne) {
 		this.haChampagne = haChampagne;
@@ -69,8 +71,10 @@ public class Passeggero {
 	 
 	
 	
-	
-	
+	@Override
+	public String toString(){
+		return this.getIdUnivocoPasseggero()+"··"+this.getSessoPasseggero()+"··"+this.getEta()+"··"+this.getClassePasseggero()+"··"+this.getHaBagagli()+"··"+this.getHaChampagne()+"··"+this.getHaFiore()+"··"+this.getHaGiornale()+"··"+this.getStatoPasseggero();
+	}
 	
 	
 }
