@@ -40,7 +40,7 @@ public class Passeggero {
 		return haBagagli;
 	}
 	public void setHaBagagli(Boolean haBagagli) {
-		this.haBagagli = haBagagli;
+		this.haBagagli = haBagagli ;
 	}
 	public Boolean getHaChampagne() {
 		return haChampagne;
@@ -58,7 +58,7 @@ public class Passeggero {
 		return haGiornale;
 	}
 	public void setHaGiornale(Boolean haGiornale) {
-		this.haGiornale = haGiornale;
+		this.haGiornale =haGiornale;
 	}
 	public StatoPasseggero getStatoPasseggero() {
 		return statoPasseggero;

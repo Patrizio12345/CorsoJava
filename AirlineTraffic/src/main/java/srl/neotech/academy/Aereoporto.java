@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Aereoporto {
 
 	private ArrayList<Aereo>listaAerei=new ArrayList<Aereo>();
-	private ArrayList<Passeggero>listaPasseggeri=new ArrayList<Passeggero>();
+	private ArrayList<Passeggero>viaggiatori=new ArrayList<Passeggero>();
 	private Integer raggioDiAzione;//da 1 a 100 km
 	
 	public Aereo atterraggio(Aereo aereo) {
@@ -18,16 +18,31 @@ public class Aereoporto {
 	}
 	public Passeggero checkIn(Passeggero passeggero) {
 		passeggero.setStatoPasseggero(StatoPasseggero.CHECKIN);
+		if(passeggero.getClassePasseggero().equals(ClassePasseggero.EXCELSIOR)) {
+			passeggero.setHaChampagne(true);
+		}if(passeggero.getSessoPasseggero().equals(SessoPasseggero.FEMMINA)) {
+			passeggero.setHaFiore(true);
+		}if(passeggero.getClassePasseggero().equals(ClassePasseggero.BUISNESS)) {
+			passeggero.setHaGiornale(true);
+		}
 		return passeggero;
 	}
 	public Passeggero checkOut(Passeggero passeggero) {
 		passeggero.setStatoPasseggero(StatoPasseggero.CHECKOUT);
+		if(passeggero.getClassePasseggero().equals(ClassePasseggero.EXCELSIOR)) {
+			passeggero.setHaChampagne(true);
+		}if(passeggero.getSessoPasseggero().equals(SessoPasseggero.FEMMINA)) {
+			passeggero.setHaFiore(true);
+		}if(passeggero.getClassePasseggero().equals(ClassePasseggero.BUISNESS)) {
+			passeggero.setHaGiornale(true);
+		}
 		return passeggero;
 	}
 	
+	
 	public Aereoporto(){
 		listaAerei=new ArrayList<Aereo>();
-		listaPasseggeri=new ArrayList<Passeggero>();
+		viaggiatori=new ArrayList<Passeggero>();
 	}
 	
 	
@@ -38,11 +53,12 @@ public class Aereoporto {
 	public void setListaAerei(ArrayList<Aereo> listaAerei) {
 		this.listaAerei = listaAerei;
 	}
-	public ArrayList<Passeggero> getListaPasseggeri() {
-		return listaPasseggeri;
+	
+	public ArrayList<Passeggero> getViaggiatori() {
+		return viaggiatori;
 	}
-	public void setListaPasseggeri(ArrayList<Passeggero> listaPasseggeri) {
-		this.listaPasseggeri = listaPasseggeri;
+	public void setViaggiatori(ArrayList<Passeggero> viaggiatori) {
+		this.viaggiatori = viaggiatori;
 	}
 	public Integer getRaggioDiAzione() {
 		return raggioDiAzione;
