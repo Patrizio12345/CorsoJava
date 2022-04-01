@@ -6,7 +6,7 @@ public class Aereo extends Aereoporto{
 
 	private Integer idUnivoco;
 	private Integer orario;
-	private String compagniaAerea;
+	private CompagniaAerea compagniaAerea;
 	private ModelloAereo modelloAereo;
 	private ArrayList<Passeggero>passeggeriAereo=new ArrayList<Passeggero>();
 	private Integer velocita;//da 1 a 10
@@ -15,6 +15,7 @@ public class Aereo extends Aereoporto{
 	
 	public Aereo() {
 		modelloAereo=new ModelloAereo();
+		
 	}
 	
 	
@@ -30,12 +31,16 @@ public class Aereo extends Aereoporto{
 	public void setOrario(Integer orario) {
 		this.orario = orario;
 	}
-	public String getCompagniaAerea() {
-		return "[Compagnia Aerea]:"+compagniaAerea;
+	
+	public CompagniaAerea getCompagniaAerea() {
+		return compagniaAerea;
 	}
-	public void setCompagniaAerea(String compagniaAerea) {
+
+
+	public void setCompagniaAerea(CompagniaAerea compagniaAerea) {
 		this.compagniaAerea = compagniaAerea;
 	}
+
 
 	public ModelloAereo getModelloAereo() {
 		return modelloAereo;
@@ -54,32 +59,32 @@ public class Aereo extends Aereoporto{
 	}
 	public void setVelocita(Integer velocita) {
 		this.velocita = velocita+velocita;
-		if(velocita==distanzaDallAereoporto && velocita==getRaggioDiAzione()) {
-			setStatoAereo(StatoAereo.IN_PARTENZA);
-			velocita++;
-		}
-		if(velocita<distanzaDallAereoporto|| velocita<getRaggioDiAzione() ) {
-			setStatoAereo(StatoAereo.DECOLLATO);
-			velocita++;
-		}
-		if(velocita>getDistanzaDallAereoporto() && velocita>getRaggioDiAzione()) {
-			setStatoAereo(StatoAereo.FUORI_SPAZIO_AEREO);
-			velocita++;
-		}
-		if(velocita<getDistanzaDallAereoporto() || velocita<getRaggioDiAzione()) {
-			setStatoAereo(StatoAereo.IN_AVVICINAMENTO);
-			velocita--;
-		}
-		if(velocita==getDistanzaDallAereoporto() && velocita==getRaggioDiAzione()) {
-			setStatoAereo(StatoAereo.ATTERRATO);
-			velocita--;
-		}
+//		if(velocita==distanzaDallAereoporto && velocita==getRaggioDiAzione()) {
+//			setStatoAereo(StatoAereo.IN_PARTENZA);
+//			velocita++;
+//		}
+//		if(velocita<distanzaDallAereoporto|| velocita<getRaggioDiAzione() ) {
+//			setStatoAereo(StatoAereo.DECOLLATO);
+//			velocita++;
+//		}
+//		if(velocita>getDistanzaDallAereoporto() && velocita>getRaggioDiAzione()) {
+//			setStatoAereo(StatoAereo.FUORI_SPAZIO_AEREO);
+//			velocita++;
+//		}
+//		if(velocita<getDistanzaDallAereoporto() || velocita<getRaggioDiAzione()) {
+//			setStatoAereo(StatoAereo.IN_AVVICINAMENTO);
+//			velocita--;
+//		}
+//		if(velocita==getDistanzaDallAereoporto() && velocita==getRaggioDiAzione()) {
+//			setStatoAereo(StatoAereo.ATTERRATO);
+//			velocita--;
+//		}
 	}
 	public Integer getDistanzaDallAereoporto() {
 		return distanzaDallAereoporto;
 	}
 	public void setDistanzaDallAereoporto(Integer distanzaDallAereoporto) {
-		this.distanzaDallAereoporto = velocita+getRaggioDiAzione()+distanzaDallAereoporto;//????
+		this.distanzaDallAereoporto =distanzaDallAereoporto;
 	}
 	public StatoAereo getStatoAereo() {
 		return statoAereo;
@@ -92,7 +97,7 @@ public class Aereo extends Aereoporto{
 
 	@Override
 	public String toString() {
-	return "[ID]:"+this.getIdUnivoco()+"[ORARIO]:"+this.getOrario()+"--"+this.getCompagniaAerea()+"[COSTRUTTORE]:"+
+	return "[ID]:"+this.getIdUnivoco()+"[ORARIO]:"+this.getOrario()+"[COMPAGNIA AEREA]:"+this.getCompagniaAerea()+"[COSTRUTTORE]:"+
 	this.getModelloAereo().getCostruttore()+"[CODICE MODELLO]:"+this.getModelloAereo().getCodiceModello()+"[CAPIENZA AEREO/PASSEGGERI]:"
 			+this.getModelloAereo().getCapienzaNumeroPasseggeri()+"[VELOCITÀ]:"+this.getVelocita()+"[DISTANZA DALL'AEREOPORTO]:"+this.getDistanzaDallAereoporto()+"--"+this.getPasseggeriAereo();
 	}

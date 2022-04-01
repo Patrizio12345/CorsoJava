@@ -13,7 +13,6 @@ public class ModelloAereo {
 	
 	
 	
-	
 	public String getCostruttore() {
 		return costruttore;
 	}
