@@ -20,7 +20,7 @@ public class Aereoporto {
 		passeggero.setStatoPasseggero(StatoPasseggero.CHECKIN);
 		if(passeggero.getClassePasseggero().equals(ClassePasseggero.EXCELSIOR)) {
 			passeggero.setHaChampagne(true);
-		}if(passeggero.getSessoPasseggero().equals(SessoPasseggero.FEMMINA)) {
+			}if(passeggero.getSessoPasseggero().equals(SessoPasseggero.FEMMINA)) {
 			passeggero.setHaFiore(true);
 		}if(passeggero.getClassePasseggero().equals(ClassePasseggero.BUISNESS)) {
 			passeggero.setHaGiornale(true);

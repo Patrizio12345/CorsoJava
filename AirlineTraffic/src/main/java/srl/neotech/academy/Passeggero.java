@@ -1,6 +1,6 @@
 package srl.neotech.academy;
 
-public class Passeggero {
+public class Passeggero extends Aereoporto{
 
 	private Integer idUnivocoPasseggero;
 	private SessoPasseggero sessoPasseggero;
@@ -13,7 +13,10 @@ public class Passeggero {
 	private StatoPasseggero statoPasseggero;
 	
 	
-
+	
+	
+	
+	
 	public Integer getIdUnivocoPasseggero() {
 		return idUnivocoPasseggero;
 	}
@@ -38,10 +41,18 @@ public class Passeggero {
 	public void setClassePasseggero(ClassePasseggero classePasseggero) {
 		this.classePasseggero = classePasseggero;
 	}
+	
+	
+	
+	
 	public Boolean getHaBagagli() {
+		
+		
 		return haBagagli;
+		 
 	}
 	public void setHaBagagli(Boolean haBagagli) {
+		
 		this.haBagagli = haBagagli ;
 	}
 	public Boolean getHaChampagne() {
@@ -73,7 +84,9 @@ public class Passeggero {
 	
 	@Override
 	public String toString(){
-		return this.getIdUnivocoPasseggero()+"··"+this.getSessoPasseggero()+"··"+this.getEta()+"··"+this.getClassePasseggero()+"··"+this.getHaBagagli()+"··"+this.getHaChampagne()+"··"+this.getHaFiore()+"··"+this.getHaGiornale()+"··"+this.getStatoPasseggero();
+	return "[ID]:"+this.getIdUnivocoPasseggero()+"[SESSO PASSEGGERO]:"+this.getSessoPasseggero()+"[ETÀ]:"+this.getEta()+"[CLASSE PASSEGGERO]:"+
+	this.getClassePasseggero()+"[HA BAGAGLI (T/F)]:"+this.getHaBagagli()+"[HA CHAMPAGNE (T/F)]:"+this.getHaChampagne()+"[HA FIORE (T/F)]:"
+	+this.getHaFiore()+"[HA GIORNALE (T/F)]:"+this.getHaGiornale()+"[STATO PASSEGGERO]:"+this.getStatoPasseggero();
 	}
 	
 	

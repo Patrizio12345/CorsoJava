@@ -5,6 +5,15 @@ public class ModelloAereo {
 	private String costruttore;
 	private Integer codiceModello;
 	private Integer capienzaNumeroPasseggeri;
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	public String getCostruttore() {
 		return costruttore;
 	}

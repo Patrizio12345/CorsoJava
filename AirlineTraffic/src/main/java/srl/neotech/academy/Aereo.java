@@ -2,7 +2,7 @@ package srl.neotech.academy;
 
 import java.util.ArrayList;
 
-public class Aereo {
+public class Aereo extends Aereoporto{
 
 	private Integer idUnivoco;
 	private Integer orario;
@@ -53,13 +53,33 @@ public class Aereo {
 		return velocita;
 	}
 	public void setVelocita(Integer velocita) {
-		this.velocita = velocita;
+		this.velocita = velocita+velocita;
+		if(velocita==distanzaDallAereoporto && velocita==getRaggioDiAzione()) {
+			setStatoAereo(StatoAereo.IN_PARTENZA);
+			velocita++;
+		}
+		if(velocita<distanzaDallAereoporto|| velocita<getRaggioDiAzione() ) {
+			setStatoAereo(StatoAereo.DECOLLATO);
+			velocita++;
+		}
+		if(velocita>getDistanzaDallAereoporto() && velocita>getRaggioDiAzione()) {
+			setStatoAereo(StatoAereo.FUORI_SPAZIO_AEREO);
+			velocita++;
+		}
+		if(velocita<getDistanzaDallAereoporto() || velocita<getRaggioDiAzione()) {
+			setStatoAereo(StatoAereo.IN_AVVICINAMENTO);
+			velocita--;
+		}
+		if(velocita==getDistanzaDallAereoporto() && velocita==getRaggioDiAzione()) {
+			setStatoAereo(StatoAereo.ATTERRATO);
+			velocita--;
+		}
 	}
 	public Integer getDistanzaDallAereoporto() {
 		return distanzaDallAereoporto;
 	}
 	public void setDistanzaDallAereoporto(Integer distanzaDallAereoporto) {
-		this.distanzaDallAereoporto = distanzaDallAereoporto;
+		this.distanzaDallAereoporto = velocita+getRaggioDiAzione()+distanzaDallAereoporto;//????
 	}
 	public StatoAereo getStatoAereo() {
 		return statoAereo;
@@ -72,7 +92,9 @@ public class Aereo {
 
 	@Override
 	public String toString() {
-	return this.getIdUnivoco()+"--"+this.getOrario()+"--"+this.getCompagniaAerea()+"--"+this.getModelloAereo().getCostruttore()+":"+this.getModelloAereo().getCodiceModello()+":"+this.getModelloAereo().getCapienzaNumeroPasseggeri()+"--"+this.getVelocita()+"--"+this.getDistanzaDallAereoporto()+"--"+this.getPasseggeriAereo();
+	return "[ID]:"+this.getIdUnivoco()+"[ORARIO]:"+this.getOrario()+"--"+this.getCompagniaAerea()+"[COSTRUTTORE]:"+
+	this.getModelloAereo().getCostruttore()+"[CODICE MODELLO]:"+this.getModelloAereo().getCodiceModello()+"[CAPIENZA AEREO/PASSEGGERI]:"
+			+this.getModelloAereo().getCapienzaNumeroPasseggeri()+"[VELOCITÀ]:"+this.getVelocita()+"[DISTANZA DALL'AEREOPORTO]:"+this.getDistanzaDallAereoporto()+"--"+this.getPasseggeriAereo();
 	}
 	
 	
