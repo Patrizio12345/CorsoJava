@@ -75,35 +75,35 @@ public class Aereo {
 		this.statoAereo = statoAereo;
 	}
 	
-	//riempimento Aereo
-	public void riempiAereo() {
-		for(int i=0;i<modelloAereo.getCapienzaNumeroPasseggeri();i++ ) {
-			
-			Passeggero passeggero=new Passeggero();
-			passeggero.setIdUnivocoPasseggero(i);
-			passeggero.setStatoPasseggero(StatoPasseggero.CHECKIN);
-			passeggero.setClassePasseggero(ClassePasseggero.generateRandomClassePasseggero());
-			if(passeggero.getClassePasseggero().equals(ClassePasseggero.EXCELSIOR)) {
-				passeggero.setHaChampagne(true);
-			}if(passeggero.getClassePasseggero().equals(ClassePasseggero.BUISNESS)) {
-				passeggero.setHaGiornale(true);
-			}if(passeggero.getClassePasseggero().equals(ClassePasseggero.BUISNESS.EXCELSIOR.TURISTA)) {
-				passeggero.setHaBagagli(true);
-			}
-			passeggero.setEta(ThreadLocalRandom.current().nextInt(1, 80 + 1));
-			passeggero.setSessoPasseggero(SessoPasseggero.generateRandomSessoPasseggero());
-			if(passeggero.getSessoPasseggero().equals(SessoPasseggero.FEMMINA)) {
-				passeggero.setHaFiore(true);
-			}
-			
-			
-		}
-		
-		
-		
-		
-		
-	}
+//	//riempimento Aereo
+//	public void scaricaPasseggeri() {
+//		for(int i=0;i<modelloAereo.getCapienzaNumeroPasseggeri();i++ ) {
+//			
+//			Passeggero passeggero=new Passeggero();
+//			passeggero.setIdUnivocoPasseggero(i);
+//			passeggero.setStatoPasseggero(StatoPasseggero.CHECKIN);
+//			passeggero.setClassePasseggero(ClassePasseggero.generateRandomClassePasseggero());
+//			if(passeggero.getClassePasseggero().equals(ClassePasseggero.EXCELSIOR)) {
+//				passeggero.setHaChampagne(true);
+//			}if(passeggero.getClassePasseggero().equals(ClassePasseggero.BUISNESS)) {
+//				passeggero.setHaGiornale(true);
+//			}if(passeggero.getClassePasseggero().equals(ClassePasseggero.BUISNESS.EXCELSIOR.TURISTA)) {
+//				passeggero.setHaBagagli(true);
+//			}
+//			passeggero.setEta(ThreadLocalRandom.current().nextInt(1, 80 + 1));
+//			passeggero.setSessoPasseggero(SessoPasseggero.generateRandomSessoPasseggero());
+//			if(passeggero.getSessoPasseggero().equals(SessoPasseggero.FEMMINA)) {
+//				passeggero.setHaFiore(true);
+//			}
+//			
+//			
+//		}
+//		
+//		
+//		
+//		
+//		
+//	}
 	
 	
 	

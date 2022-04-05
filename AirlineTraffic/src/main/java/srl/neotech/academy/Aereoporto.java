@@ -1,6 +1,7 @@
 package srl.neotech.academy;
 
 import java.util.ArrayList;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Aereoporto {
 
@@ -9,11 +10,12 @@ public class Aereoporto {
 	private Integer raggioDiAzione;//da 1 a 100 km
 	
 	public Aereo atterraggio(Aereo aereo) {
-		
-		
-		
-		
-		
+		while(aereo.getDistanzaDallAereoporto()>0) {
+			Integer distanzaAttualeAereo=aereo.getDistanzaDallAereoporto()-aereo.getVelocita();
+			aereo.setDistanzaDallAereoporto(distanzaAttualeAereo);
+			System.out.println("Blink!");
+		}
+		System.out.println("L'aereo:"+aereo.getIdUnivoco()+" è ATTERRATO");
 		aereo.setStatoAereo(StatoAereo.ATTERRATO);
 		return aereo;
 	}
@@ -28,7 +30,7 @@ public class Aereoporto {
 		return aereo;
 	}
 	public Passeggero checkIn(Passeggero passeggero) {
-		passeggero.setStatoPasseggero(StatoPasseggero.CHECKIN);
+		passeggero.setStatoPasseggero(StatoPasseggero.IMBARCATO);
 		if(passeggero.getClassePasseggero().equals(ClassePasseggero.EXCELSIOR)) {
 			passeggero.setHaChampagne(true);
 			}if(passeggero.getSessoPasseggero().equals(SessoPasseggero.FEMMINA)) {
@@ -55,28 +57,32 @@ public class Aereoporto {
 	
 	
 	
-	public Passeggero checkOut(Passeggero passeggero) {
-		passeggero.setStatoPasseggero(StatoPasseggero.CHECKOUT);
-		if(passeggero.getClassePasseggero().equals(ClassePasseggero.EXCELSIOR)) {
-			passeggero.setHaChampagne(true);
-		}if(passeggero.getSessoPasseggero().equals(SessoPasseggero.FEMMINA)) {
-			passeggero.setHaFiore(true);
-		}if(passeggero.getClassePasseggero().equals(ClassePasseggero.BUISNESS)) {
-			passeggero.setHaGiornale(true);
-		}if(passeggero.getClassePasseggero().equals(ClassePasseggero.BUISNESS.EXCELSIOR.TURISTA)) {
-			passeggero.setHaBagagli(true);
+	
+	public void checkOut(Aereo aereoInArrivo) {
+		System.out.println("--CHECKOUT DELL'AEREO:"+aereoInArrivo.getIdUnivoco());
+		for(int i=0;i<aereoInArrivo.getModelloAereo().getCapienzaNumeroPasseggeri();i++) {
+			Passeggero passeggeroInArrivo = new Passeggero();
+			passeggeroInArrivo.setIdUnivocoPasseggero(i+1);
+			passeggeroInArrivo.setClassePasseggero(ClassePasseggero.generateRandomClassePasseggero());
+			passeggeroInArrivo.setStatoPasseggero(StatoPasseggero.SBARCATO);
+			if(passeggeroInArrivo.getClassePasseggero().equals(ClassePasseggero.EXCELSIOR)) {
+				passeggeroInArrivo.setHaChampagne(true);
+			}passeggeroInArrivo.setEta(ThreadLocalRandom.current().nextInt(1, 80 + 1));
+			passeggeroInArrivo.setSessoPasseggero(SessoPasseggero.generateRandomSessoPasseggero());
+			if(passeggeroInArrivo.getSessoPasseggero().equals(SessoPasseggero.FEMMINA)) {
+				passeggeroInArrivo.setHaFiore(true);
+			}if(passeggeroInArrivo.getClassePasseggero().equals(ClassePasseggero.BUISNESS)) {
+				passeggeroInArrivo.setHaGiornale(true);
+			}if(passeggeroInArrivo.getClassePasseggero().equals(ClassePasseggero.BUISNESS.EXCELSIOR.TURISTA)) {
+				passeggeroInArrivo.setHaBagagli(true);
+			}
+			System.out.println("Passeggero"+passeggeroInArrivo.getIdUnivocoPasseggero()+"sbarcato!");
+			viaggiatori.add(passeggeroInArrivo);
 		}
-		return passeggero;
-	}
-	
-	public void checkOut(ArrayList<Passeggero> viaggiatori2, Aereo aereoInArrivo) {
+		
 		
 		
 	}
-	
-	
-	
-	
 	
 	
 	public Aereoporto(){
@@ -106,15 +112,6 @@ public class Aereoporto {
 	public void setRaggioDiAzione(Integer raggioDiAzione) {
 		this.raggioDiAzione = raggioDiAzione;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 }

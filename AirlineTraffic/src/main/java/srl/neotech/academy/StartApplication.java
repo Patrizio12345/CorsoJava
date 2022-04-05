@@ -146,114 +146,117 @@ public class StartApplication {
 				passeggero.setHaFiore(false);
 			}
 			aereoporto.getViaggiatori().add(passeggero);
+			
 		}
 
 		
-		ArrayList<Aereo> aereiInPartenza=new ArrayList<Aereo>();
-		ArrayList<Aereo> aereiInArrivo=new ArrayList<Aereo>();
+//		ArrayList<Aereo> aereiInPartenza=new ArrayList<Aereo>();
+//		ArrayList<Aereo> aereiInArrivo=new ArrayList<Aereo>();
+//		
+//		for(Aereo aereoDaSmistare:aereoporto.getListaAerei()) {
+//			if(aereoDaSmistare.getStatoAereo().equals(StatoAereo.IN_PARTENZA)) {
+//				aereiInPartenza.add(aereoDaSmistare);
+//			}else {
+//				
+//				aereiInArrivo.add(aereoDaSmistare);
+//			}
+//		}
+//			
 		
-		for(Aereo aereoDaSmistare:aereoporto.getListaAerei()) {
-			if(aereoDaSmistare.getStatoAereo().equals(StatoAereo.IN_PARTENZA)) {
-				aereiInPartenza.add(aereoDaSmistare);
-			}else {
-				
-				aereiInArrivo.add(aereoDaSmistare);
-			}
-		}
-			
-		ArrayList<Passeggero> passeggeriInPartenza=new ArrayList<Passeggero>();
-		ArrayList<Passeggero> passeggeriInArrivo=new ArrayList<Passeggero>();
-		
-		for(Passeggero passeggeroDaSmistare:aereoporto.getViaggiatori() ) {
-			if(passeggeroDaSmistare.getStatoPasseggero().equals(StatoPasseggero.CHECKIN)) {
-				passeggeriInPartenza.add(passeggeroDaSmistare);
-			}else {
-				
-				 passeggeriInArrivo.add(passeggeroDaSmistare);
-			}
-		}
-		
-		//Ordinamento aereiInPartenza
-		Collections.sort(aereiInPartenza,new Comparator<Aereo>() {
-			public int compare(Aereo o1, Aereo o2){
-		         if(o1.getOrario() == o2.getOrario())
-		             return 0;
-		         return o1.getOrario() < o2.getOrario() ? -1 : 1;
-		     }
-		});
-		
-		
-		//Ordinamento aereiInArrivo
-				Collections.sort(aereiInArrivo,new Comparator<Aereo>() {
+//		//Ordinamento aereiInPartenza
+//		Collections.sort(aereiInPartenza,new Comparator<Aereo>() {
+//			public int compare(Aereo o1, Aereo o2){
+//		         if(o1.getOrario() == o2.getOrario())
+//		             return 0;
+//		         return o1.getOrario() < o2.getOrario() ? -1 : 1;
+//		     }
+//		});
+//		
+//		
+//		//Ordinamento aereiInArrivo
+//				Collections.sort(aereiInArrivo,new Comparator<Aereo>() {
+//					public int compare(Aereo o1, Aereo o2){
+//				         if(o1.getOrario() == o2.getOrario())
+//				             return 0;
+//				         return o1.getOrario() < o2.getOrario() ? -1 : 1;
+//				     }
+//				});
+//		
+//		
+//		
+//				
+//		
+//		System.out.println("----- IN PARTENZA--------");
+//		for(Aereo aereoInPartenza: aereiInPartenza) {
+//			System.out.println(aereoInPartenza);
+//		}
+//		System.out.println("----- IN ARRIVO--------");
+//		for(Aereo aereoInArrivo: aereiInArrivo) {
+//			System.out.println(aereoInArrivo);
+//		}
+//		
+//		
+		//Ordinamento aerei
+				Collections.sort(aereoporto.getListaAerei(),new Comparator<Aereo>() {
 					public int compare(Aereo o1, Aereo o2){
 				         if(o1.getOrario() == o2.getOrario())
 				             return 0;
 				         return o1.getOrario() < o2.getOrario() ? -1 : 1;
 				     }
 				});
-		
-		
-				Collections.sort(passeggeriInPartenza,new Comparator<Passeggero>() {
-					public int compare(Passeggero o1, Passeggero o2){
-				         if(o1.getIdUnivocoPasseggero() == o2.getIdUnivocoPasseggero())
-				             return 0;
-				         return o1.getIdUnivocoPasseggero() < o2.getIdUnivocoPasseggero() ? -1 : 1;
-				     }
-				});
+				
+				System.out.println("-----ORDINAMENTO ORARIO --------");
+				for(Aereo aereoDaSmistare:aereoporto.getListaAerei()) {
+					System.out.println(aereoDaSmistare);
+				}
 				
 				
-				
-						Collections.sort(passeggeriInArrivo,new Comparator<Passeggero>() {
-							public int compare(Passeggero o1, Passeggero o2){
-						         if(o1.getIdUnivocoPasseggero() == o2.getIdUnivocoPasseggero())
-						             return 0;
-						         return o1.getIdUnivocoPasseggero() < o2.getIdUnivocoPasseggero() ? -1 : 1;
-						     }
-						});
+				for(int i=0;i<300;i++) {
+					if(aereoporto.getListaAerei().get(i).getStatoAereo().equals(StatoAereo.IN_PARTENZA) ) {
+						aereoporto.checkIn(aereoporto.getViaggiatori(),aereoporto.getListaAerei().get(i));
+						aereoporto.decollo(aereoporto.getListaAerei().get(i));
+					}else {
+						 aereoporto.checkOut(aereoporto.getListaAerei().get(i) );
+						aereoporto.atterraggio(aereoporto.getListaAerei().get(i));
+						
+					}
 					
+					
+					
+				}
+				
+				
+				
+				
+				
+				
+				
+				
 				
 		
-		System.out.println("----- IN PARTENZA--------");
-		for(Aereo aereoInPartenza: aereiInPartenza) {
-			System.out.println(aereoInPartenza);
-		}
-		System.out.println("----- IN ARRIVO--------");
-		for(Aereo aereoInArrivo: aereiInArrivo) {
-			System.out.println(aereoInArrivo);
-		}
-		
-		
-		System.out.println("----- IN PARTENZA--------");
-		for(Passeggero passeggeroInPartenza: passeggeriInPartenza) {
-			System.out.println(passeggeriInPartenza );
-		}
-		System.out.println("----- IN ARRIVO--------");
-		for(Passeggero passeggeroInArrivo:passeggeriInArrivo) {
-			System.out.println(passeggeroInArrivo);
-		}
 	
-        
-		//Far Decollare gi Aerei..... per ogni Aereo
-		for(Aereo aereoinPartenza: aereiInPartenza) {
-			//Checkin.... sposto i viaggiatori nell'iesimo aereo.
-			aereoporto.checkIn(aereoporto.getViaggiatori(),aereoinPartenza);
-			//Decollo.. dell'iesimo aereo.
-			aereoporto.decollo(aereoinPartenza);	
-		}
-
-        //Atterraggio
-     for(Aereo aereoInArrivo:aereiInArrivo) {
-    	 aereoporto.checkOut(aereoporto.getViaggiatori(),aereoInArrivo);
-    	 aereoporto.atterraggio(aereoInArrivo);
-    	 aereo.riempiAereo();
-    	 
-     }
-
-		
-		
-		
-		
-		
+//        
+//		//Far Decollare gi Aerei..... per ogni Aereo
+	//	for(Aereo aereoinPartenza: aereiInPartenza) {
+//			//Checkin.... sposto i viaggiatori nell'iesimo aereo.
+		//	aereoporto.checkIn(aereoporto.getViaggiatori(),aereoinPartenza);
+//			//Decollo.. dell'iesimo aereo.
+	//		aereoporto.decollo(aereoinPartenza);	
+	//	}
+//
+//        //Atterraggio
+//     for(Aereo aereoInArrivo:aereiInArrivo) {
+//    	 aereoporto.checkOut(aereoporto.getViaggiatori(),aereoInArrivo);
+//    	 aereoporto.atterraggio(aereoInArrivo);
+//    	 aereo.riempiAereo();
+//    	 
+//     }
+//
+//		
+//		
+//		
+//		
+//		
 		
 		
 		
