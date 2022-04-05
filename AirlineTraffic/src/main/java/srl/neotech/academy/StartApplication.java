@@ -135,6 +135,7 @@ public class StartApplication {
 			//}//System.out.println(aereo.getDistanzaDallAereoporto()+"Blink!");
 		} 
 
+		
 		for(int j=1;j<1000;j++) {
 			passeggero=new Passeggero();
 			passeggero.setIdUnivocoPasseggero(j);
