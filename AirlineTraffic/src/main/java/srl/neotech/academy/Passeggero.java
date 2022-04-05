@@ -1,6 +1,6 @@
 package srl.neotech.academy;
 
-public class Passeggero extends Aereoporto{
+public class Passeggero {
 
 	private Integer idUnivocoPasseggero;
 	private SessoPasseggero sessoPasseggero;

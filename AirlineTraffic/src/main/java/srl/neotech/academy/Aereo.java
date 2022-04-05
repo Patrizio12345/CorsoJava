@@ -1,8 +1,9 @@
 package srl.neotech.academy;
 
 import java.util.ArrayList;
+import java.util.concurrent.ThreadLocalRandom;
 
-public class Aereo extends Aereoporto{
+public class Aereo {
 
 	private Integer idUnivoco;
 	private Integer orario;
@@ -59,26 +60,7 @@ public class Aereo extends Aereoporto{
 	}
 	public void setVelocita(Integer velocita) {
 		this.velocita = velocita+velocita;
-//		if(velocita==distanzaDallAereoporto && velocita==getRaggioDiAzione()) {
-//			setStatoAereo(StatoAereo.IN_PARTENZA);
-//			velocita++;
-//		}
-//		if(velocita<distanzaDallAereoporto|| velocita<getRaggioDiAzione() ) {
-//			setStatoAereo(StatoAereo.DECOLLATO);
-//			velocita++;
-//		}
-//		if(velocita>getDistanzaDallAereoporto() && velocita>getRaggioDiAzione()) {
-//			setStatoAereo(StatoAereo.FUORI_SPAZIO_AEREO);
-//			velocita++;
-//		}
-//		if(velocita<getDistanzaDallAereoporto() || velocita<getRaggioDiAzione()) {
-//			setStatoAereo(StatoAereo.IN_AVVICINAMENTO);
-//			velocita--;
-//		}
-//		if(velocita==getDistanzaDallAereoporto() && velocita==getRaggioDiAzione()) {
-//			setStatoAereo(StatoAereo.ATTERRATO);
-//			velocita--;
-//		}
+
 	}
 	public Integer getDistanzaDallAereoporto() {
 		return distanzaDallAereoporto;
@@ -93,11 +75,43 @@ public class Aereo extends Aereoporto{
 		this.statoAereo = statoAereo;
 	}
 	
+	//riempimento Aereo
+	public void riempiAereo() {
+		for(int i=0;i<modelloAereo.getCapienzaNumeroPasseggeri();i++ ) {
+			
+			Passeggero passeggero=new Passeggero();
+			passeggero.setIdUnivocoPasseggero(i);
+			passeggero.setStatoPasseggero(StatoPasseggero.CHECKIN);
+			passeggero.setClassePasseggero(ClassePasseggero.generateRandomClassePasseggero());
+			if(passeggero.getClassePasseggero().equals(ClassePasseggero.EXCELSIOR)) {
+				passeggero.setHaChampagne(true);
+			}if(passeggero.getClassePasseggero().equals(ClassePasseggero.BUISNESS)) {
+				passeggero.setHaGiornale(true);
+			}if(passeggero.getClassePasseggero().equals(ClassePasseggero.BUISNESS.EXCELSIOR.TURISTA)) {
+				passeggero.setHaBagagli(true);
+			}
+			passeggero.setEta(ThreadLocalRandom.current().nextInt(1, 80 + 1));
+			passeggero.setSessoPasseggero(SessoPasseggero.generateRandomSessoPasseggero());
+			if(passeggero.getSessoPasseggero().equals(SessoPasseggero.FEMMINA)) {
+				passeggero.setHaFiore(true);
+			}
+			
+			
+		}
+		
+		
+		
+		
+		
+	}
+	
+	
+	
 	
 
 	@Override
 	public String toString() {
-	return "[ID]:"+this.getIdUnivoco()+"[ORARIO]:"+this.getOrario()+"[COMPAGNIA AEREA]:"+this.getCompagniaAerea()+"[COSTRUTTORE]:"+
+	return "[ID]:"+this.getIdUnivoco()+"[ORARIO]:"+this.getOrario()+"[STATO AEREO]:"+this.getStatoAereo()+"[COMPAGNIA AEREA]:"+this.getCompagniaAerea()+"[COSTRUTTORE]:"+
 	this.getModelloAereo().getCostruttore()+"[CODICE MODELLO]:"+this.getModelloAereo().getCodiceModello()+"[CAPIENZA AEREO/PASSEGGERI]:"
 			+this.getModelloAereo().getCapienzaNumeroPasseggeri()+"[VELOCITÀ]:"+this.getVelocita()+"[DISTANZA DALL'AEREOPORTO]:"+this.getDistanzaDallAereoporto()+"--"+this.getPasseggeriAereo();
 	}
