@@ -11,7 +11,7 @@
 		SP_ Simone
 		MP_ Mauro
 	 -->
-	<artifactId>PM_WebAppTemplate</artifactId>
+	<artifactId>PM_WebApp03</artifactId>
 	<version>0.0.1</version>
 	<packaging>war</packaging>
 
@@ -51,7 +51,7 @@
 				<filtering>true</filtering>
 				<excludes>
 					<exclude>**/conf.properties</exclude>
-					<exclude>application.properties</exclude>
+					
 				</excludes>
 			</resource>
 		</resources>
