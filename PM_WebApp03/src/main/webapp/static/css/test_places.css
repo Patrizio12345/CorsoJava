@@ -1,13 +1,20 @@
-body{
-	background-color: aqua;
+body {
+  font-family: "Helvetica", Sans-Serif;
+  color:blue;
+  background-image:url("https://i.gifer.com/2r4z.gif");
+  height: 2000px;
+  font-size: 120%;
 }
-	#1nature{ 
-	color: green;
-}
-	#2mount1{
-	color: fuchsia;
-	}
-	#2mount2{
-	color: olive;
-	}
+	h1{ 
+	border-style:double;
+	text-align:center;
+	color: aqua;
 	
+}
+	h2 {
+	
+	text-decoration: underline;
+	color: #613583;
+	
+	
+}

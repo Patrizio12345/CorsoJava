@@ -4,13 +4,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Beautiful Places</title>
-<link rel="stylesheet" type="text/css" href="static/css/test_beautiful_places.css"/>
+  <link rel="stylesheet" type="text/css" href="static/css/test_places.css"/>
 </head>
 <body>
-<h1 class="1nature"><strong>NATURE</strong></h1>
-<h2 class="2mount1"><strong><i>Mountains with Lake</i></strong> </h2>
- <img src="static/images/MountainWithLake.jpg"> 
- <h2 class="2mount2"><strong><i>Norway</i></strong> </h2>
- <img src="static/images/Norway.jpg"  width="700" height="700">
+<h1><strong><em>SPACE</em></strong></h1>
+<h2 ><strong><i>Black Hole</i></strong> </h2>
+ <img src="https://media1.giphy.com/media/SVCSsoKU5v6ZJLk07n/giphy.gif" width="1600" height="900"> 
+ <h2 ><strong><i>Infinity</i></strong> </h2>
+ <img src="https://i.gifer.com/embedded/download/1KO7.gif" width="1500" height="900" >
 </body>
 </html> 
