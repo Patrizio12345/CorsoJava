@@ -1,0 +1,25 @@
+.myclass{
+    display:inline-block;
+    width: 70px;
+    
+}
+body {
+	background-position :center;
+	background-image: url("https://markict.nl/wp-content/uploads/2020/11/big-data-analytics.jpg");
+    background-size: cover;
+    position: relative;
+    height: 450px;
+}
+
+.slidecontainer {
+  width: 20%;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
+}
+.try{
+	color: aqua;
+}
