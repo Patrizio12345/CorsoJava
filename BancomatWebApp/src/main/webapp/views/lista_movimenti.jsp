@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
@@ -46,7 +47,8 @@
 <table class="table table-dark table-striped">
  
     <tr>
-    <th scope="col">Id</th>
+    <th scope="col">ID</th>
+    <th scope="col">UUID</th>
       <th scope="col">Data-Ora</th>
       <th scope="col">Operazione</th>
       <th scope="col">Nominativo</th>
@@ -56,17 +58,19 @@
       <th scope="col">Canc</th>
     </tr>
   
- 
-  <c:forEach var="movimento" items="${listaMovimenti}"  >
+ <c:set var="numMov" scope="session" value="0"/>
+  <c:forEach var="movimento" items="${moveWay.listaMovimentiRestituiti}">
+   <c:set var="numMov" scope="session" value="${numMov+1}"/>
     <tr>
+     <td> <c:out value="${numMov}"/></td>
        <td> <c:out value="${movimento.id}"/></td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td><input class='myclass' type='button' value='Delete'/></td>
+      <td> <c:out value="${movimento.dataEora}"/></td>
+      <td> <c:out value="${movimento.operazione}"/></td>
+     <td> <c:out value="${movimento.nominativo}"/></td>
+     <td> <c:out value="${movimento.taglio}"/></td>
+     <td> <c:out value="${movimento.quantita}"/></td>
+      <td>Moneytizzazione!</td>
+      <td><a href="elimina-movimento?id=<c:out value="${movimento.id}"/>"> <input class="myclass" type="button"  value="Delete"/></a></td>
     </tr>
     </c:forEach>
   

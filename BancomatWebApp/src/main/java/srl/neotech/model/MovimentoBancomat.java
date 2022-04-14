@@ -1,13 +1,14 @@
 package srl.neotech.model;
 
 
+import java.time.LocalDateTime;
 
 public class MovimentoBancomat {
 	
 	private String nominativo;
 	private String id;
-	private Integer dataEora;
-	private String operazione;
+	private String dataEora;
+	private TipologiaMovimento operazione;
 	private Integer taglio;
 	private Integer quantita;
 	private Integer totale;
@@ -20,16 +21,23 @@ public class MovimentoBancomat {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public Integer getDataEora() {
+	
+	
+	
+	public String getDataEora() {
 		return dataEora;
 	}
-	public void setDataEora(Integer dataEora) {
+	public void setDataEora(String dataEora) {
 		this.dataEora = dataEora;
 	}
-	public String getOperazione() {
+	
+	
+	
+	
+	public TipologiaMovimento getOperazione() {
 		return operazione;
 	}
-	public void setOperazione(String operazione) {
+	public void setOperazione(TipologiaMovimento operazione) {
 		this.operazione = operazione;
 	}
 	public String getNominativo() {
@@ -56,6 +64,25 @@ public class MovimentoBancomat {
 	public void setTotale(Integer totale) {
 		this.totale = totale;
 	}
+	
+	
+	public boolean equals(MovimentoBancomat obj) {
+		if(obj == null) return false;
+		if(obj == this) return true;
+		if(!(obj instanceof MovimentoBancomat)) return false;
+		MovimentoBancomat o =(MovimentoBancomat) obj;
+		return o.id == this.id;
+ 		
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

@@ -1,8 +1,16 @@
 package srl.neotech.controllers;
 
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
+import java.util.concurrent.ThreadLocalRandom;
 
+import org.ajbrown.namemachine.Name;
+import org.ajbrown.namemachine.NameGenerator;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -10,6 +18,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import srl.neotech.model.MovimentoBancomat;
+import srl.neotech.model.SingletonMovimentoBancomat;
+import srl.neotech.model.TipologiaMovimento;
+import srl.neotech.requestresponse.EliminaMovimentoRequest;
+import srl.neotech.requestresponse.ListaMovimentiResponse;
 
 
 
@@ -38,58 +50,64 @@ public class ViewController {
 	public String prel() {
 		return "prelievo";
 	}
-//	@RequestMapping(value="/registrazioneMovimenti", method = RequestMethod.POST)
-//	public String registrazioneMovimenti(@ModelAttribute("operazione")MovimentoBancomat dati, Model model ) {
-//		System.out.println(dati.getNominativo());
-//		
-//		ArrayList<MovimentoBancomat>listaMovimenti= new ArrayList<MovimentoBancomat>();
-//		for(int i=0;i<10;i++) {
-//			MovimentoBancomat movimento= new MovimentoBancomat();
-//			movimento.setId(UUID.randomUUID().toString());
-//			movimento.setDataEora(null);
-//			movimento.setNominativo("xxx");
-//			movimento.setOperazione(null);
-//			movimento.setQuantita(null);
-//			movimento.setTaglio(null);
-//			movimento.setTotale(null);
-//			listaMovimenti.add(movimento);
-//		}
-//		
-//		UUID.randomUUID().toString();
-//		MovimentoBancomat movimentoDaCancellare=new MovimentoBancomat();
-//		movimentoDaCancellare.setId("ID"+1);
-//		listaMovimenti.remove(movimentoDaCancellare);
-//		
-//	//	model.addAttribute("listaMovimenti",listaMovimenti );
+
 		
-	@RequestMapping(value="/registrazioneMovimenti", method = RequestMethod.GET)
-	public String registrazioneMovimenti(Model model) {
+	@RequestMapping(value="/generaMovimenti", method = RequestMethod.GET)
+	public String generaMovimenti(Model model) {
 	
-		ArrayList<MovimentoBancomat>listaMovimenti=new ArrayList<MovimentoBancomat>();
-		for(int i=0;i<10;i++) {
+	
+		NameGenerator namegenerator = new NameGenerator();
+		List<Name> names = namegenerator.generateNames( 5000 );
+		
+		
+		
+		
+		for(int i=0;i<30;i++) {
 			MovimentoBancomat movimento=new MovimentoBancomat();
+			
+			LocalDateTime myDateObj= LocalDateTime.now();
+		    DateTimeFormatter myFormtObj=DateTimeFormatter.ofPattern("E, MMM dd yyyy HH:mm:ss");
+		    String formattedDate = myDateObj.format(myFormtObj);  
+			
 			movimento.setId(UUID.randomUUID().toString());
-			movimento.setDataEora(null);
-			movimento.setNominativo("xxx");
-			movimento.setOperazione(null);
-			movimento.setQuantita(null);
-			movimento.setTaglio(null);
+			movimento.setDataEora(formattedDate);
+			movimento.setNominativo(namegenerator.generateName().toString());
+			movimento.setOperazione(TipologiaMovimento.generateRandomOperazione());
+			movimento.setQuantita(ThreadLocalRandom.current().nextInt(1, 100000 + 1));
+			movimento.setTaglio(ThreadLocalRandom.current().nextInt(1, 100 + 1));
 			movimento.setTotale(null);
-			listaMovimenti.add(movimento);
 			
-			
+			SingletonMovimentoBancomat.getInstance().getListaMovimenti().add(movimento);
+				
 		}
 		
+		model.addAttribute("generaMov",SingletonMovimentoBancomat.getInstance().getListaMovimenti().size());
 		
-		model.addAttribute("listaMovimenti",listaMovimenti);
-		
-		
+		return "genera_movimenti";
+	}
+	
+	@RequestMapping(value="/elimina-movimento", method = RequestMethod.GET)
+	public String eliminaMovimento(@ModelAttribute EliminaMovimentoRequest movimentoDaEliminare, Model model) {
+		SingletonMovimentoBancomat.getInstance().getListaMovimenti().removeIf(movimento->movimento.getId().equals(movimentoDaEliminare.getId()));
+		ListaMovimentiResponse response=new ListaMovimentiResponse();
+		response.setListaMovimentiRestituiti(SingletonMovimentoBancomat.getInstance().getListaMovimenti());
+		model.addAttribute("moveWay", response);
 		return "lista_movimenti";
 	}
 	
 	
 	
 	
+	
+	
+	@RequestMapping(value="/listamovimenti", method = RequestMethod.GET)
+	public String listamovimenti(Model model) {
+		ListaMovimentiResponse response=new ListaMovimentiResponse();
+		response.setListaMovimentiRestituiti(SingletonMovimentoBancomat.getInstance().getListaMovimenti());
+		model.addAttribute("moveWay", response);
+		return "lista_movimenti";
+	}
+
 	
 	
 	
