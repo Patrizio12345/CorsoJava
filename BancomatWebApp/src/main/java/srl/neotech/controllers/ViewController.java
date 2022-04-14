@@ -71,6 +71,7 @@ public class ViewController {
 			
 			movimento.setId(UUID.randomUUID().toString());
 			movimento.setDataEora(formattedDate);
+			movimento.setConto(ThreadLocalRandom.current().nextInt(1, 100000 + 1));
 			movimento.setNominativo(namegenerator.generateName().toString());
 			movimento.setOperazione(TipologiaMovimento.generateRandomOperazione());
 			movimento.setQuantita(ThreadLocalRandom.current().nextInt(1, 100000 + 1));

@@ -1,7 +1,7 @@
 package srl.neotech.model;
 
 
-import java.time.LocalDateTime;
+
 
 public class MovimentoBancomat {
 	
@@ -9,9 +9,11 @@ public class MovimentoBancomat {
 	private String id;
 	private String dataEora;
 	private TipologiaMovimento operazione;
+	private String operation;
 	private Integer taglio;
 	private Integer quantita;
 	private Integer totale;
+	private Integer conto;
 	
 	
 	
@@ -34,6 +36,18 @@ public class MovimentoBancomat {
 	
 	
 	
+	public Integer getConto() {
+		return conto;
+	}
+	public void setConto(Integer conto) {
+		this.conto = conto;
+	}
+	public String getOperation() {
+		return operation;
+	}
+	public void setOperation(String operation) {
+		this.operation = operation;
+	}
 	public TipologiaMovimento getOperazione() {
 		return operazione;
 	}
