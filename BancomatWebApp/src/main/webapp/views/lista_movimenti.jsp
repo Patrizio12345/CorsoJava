@@ -50,12 +50,12 @@
     <th scope="col">ID</th>
     <th scope="col">UUID</th>
       <th scope="col">Data-Ora</th>
-      <th scope="col">Bitcoin Wallet</th>
+      <th scope="col">₿ Wallet</th>
       <th scope="col">Operazione</th>
       <th scope="col">Nominativo</th>
        <th scope="col">Taglio</th>
       <th scope="col">Quantità</th>
-      <th scope="col">Bitcoin wallet dopo operazioni</th>
+      <th scope="col">₿ wallet dopo operazioni</th>
       <th scope="col">Canc</th>
     </tr>
   
@@ -66,12 +66,12 @@
      <td> <c:out value="${numMov}"/></td>
        <td> <c:out value="${movimento.id}"/></td>
       <td> <c:out value="${movimento.dataEora}"/></td>
-      <td> Importo presente: <c:out value="${movimento.conto}"/></td>
+      <td> ₿ conto: <c:out value="${movimento.conto}"/></td>
       <td> <c:out value="${movimento.operazione}"/></td>
      <td> <c:out value="${movimento.nominativo}"/></td>
      <td> <c:out value="${movimento.taglio}"/></td>
      <td> <c:out value="${movimento.quantita}"/></td>
-      <td>Moneytizzazione!</td>
+      <td>₿ conto attuale:</td>
       <td><a href="elimina-movimento?id=<c:out value="${movimento.id}"/>"> <input class="myclass" type="button"  value="Delete"/></a></td>
     </tr>
     </c:forEach>

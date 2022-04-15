@@ -75,7 +75,7 @@ public class ViewController {
 			movimento.setNominativo(namegenerator.generateName().toString());
 			movimento.setOperazione(TipologiaMovimento.generateRandomOperazione());
 			movimento.setQuantita(ThreadLocalRandom.current().nextInt(1, 100000 + 1));
-			movimento.setTaglio(ThreadLocalRandom.current().nextInt(1, 100 + 1));
+			movimento.setTaglio(ThreadLocalRandom.current().nextInt(1, 50 + 1));
 			movimento.setTotale(null);
 			
 			SingletonMovimentoBancomat.getInstance().getListaMovimenti().add(movimento);

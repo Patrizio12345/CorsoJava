@@ -4,8 +4,13 @@
 <html>
 <head>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link  href="static/css/BancomatStyle.css" rel="stylesheet" >
+<link  href="static/css/BancomatStyle.css" rel="stylesheet">
 <meta charset="UTF-8">
+ <script  type="text/javascript">
+function showMessages() {
+  alert("Invio effettuato con successo!");
+}
+</script>
 <title>Versamento</title>
 </head>
 <body>
@@ -77,7 +82,7 @@ slideCol.oninput = function() {
 
 <!-- Invio Importo -->
 
-<button  type="submit" id="bth-search" class="btn btn-primary btn-lg float-right">Invio</button><br>
+<button  type="submit" id="bth-search" onclick="showMessages()"  class="btn btn-primary btn-lg float-right">Invio</button><br>
 
 
 
