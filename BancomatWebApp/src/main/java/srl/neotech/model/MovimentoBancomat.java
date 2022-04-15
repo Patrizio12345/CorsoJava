@@ -14,8 +14,8 @@ public class MovimentoBancomat {
 	private Integer quantita;
 	private Integer totale;
 	private Integer conto;
-	
-	
+	private Integer saldo;
+ 	
 	
 	public String getId() {
 		return id;
@@ -36,6 +36,12 @@ public class MovimentoBancomat {
 	
 	
 	
+	public Integer getSaldo() {
+		return saldo;
+	}
+	public void setSaldo(Integer saldo) {
+		this.saldo = saldo;
+	}
 	public Integer getConto() {
 		return conto;
 	}

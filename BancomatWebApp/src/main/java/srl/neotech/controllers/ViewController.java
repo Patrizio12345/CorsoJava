@@ -52,40 +52,40 @@ public class ViewController {
 	}
 
 		
-	@RequestMapping(value="/generaMovimenti", method = RequestMethod.GET)
-	public String generaMovimenti(Model model) {
-	
-	
-		NameGenerator namegenerator = new NameGenerator();
-		List<Name> names = namegenerator.generateNames( 5000 );
-		
-		
-		
-		
-		for(int i=0;i<30;i++) {
-			MovimentoBancomat movimento=new MovimentoBancomat();
-			
-			LocalDateTime myDateObj= LocalDateTime.now();
-		    DateTimeFormatter myFormtObj=DateTimeFormatter.ofPattern("E, MMM dd yyyy HH:mm:ss");
-		    String formattedDate = myDateObj.format(myFormtObj);  
-			
-			movimento.setId(UUID.randomUUID().toString());
-			movimento.setDataEora(formattedDate);
-			movimento.setConto(ThreadLocalRandom.current().nextInt(1, 100000 + 1));
-			movimento.setNominativo(namegenerator.generateName().toString());
-			movimento.setOperazione(TipologiaMovimento.generateRandomOperazione());
-			movimento.setQuantita(ThreadLocalRandom.current().nextInt(1, 100000 + 1));
-			movimento.setTaglio(ThreadLocalRandom.current().nextInt(1, 50 + 1));
-			movimento.setTotale(null);
-			
-			SingletonMovimentoBancomat.getInstance().getListaMovimenti().add(movimento);
-				
-		}
-		
-		model.addAttribute("generaMov",SingletonMovimentoBancomat.getInstance().getListaMovimenti().size());
-		
-		return "genera_movimenti";
-	}
+//	@RequestMapping(value="/generaMovimenti", method = RequestMethod.GET)
+//	public String generaMovimenti(Model model) {
+//	
+//	
+//		NameGenerator namegenerator = new NameGenerator();
+//		List<Name> names = namegenerator.generateNames( 5000 );
+//		
+//		
+//		
+//		
+//		for(int i=0;i<30;i++) {
+//			MovimentoBancomat movimento=new MovimentoBancomat();
+//			
+//			LocalDateTime myDateObj= LocalDateTime.now();
+//		    DateTimeFormatter myFormtObj=DateTimeFormatter.ofPattern("E, MMM dd yyyy HH:mm:ss");
+//		    String formattedDate = myDateObj.format(myFormtObj);  
+//			
+//			movimento.setId(UUID.randomUUID().toString());
+//			movimento.setDataEora(formattedDate);
+//			movimento.setConto(ThreadLocalRandom.current().nextInt(1, 100000 + 1));
+//			movimento.setNominativo(namegenerator.generateName().toString());
+//			movimento.setOperazione(TipologiaMovimento.generateRandomOperazione());
+//			movimento.setQuantita(ThreadLocalRandom.current().nextInt(1, 100000 + 1));
+//			movimento.setTaglio(ThreadLocalRandom.current().nextInt(1, 50 + 1));
+//			movimento.setTotale(null);
+//			
+//			SingletonMovimentoBancomat.getInstance().getListaMovimenti().add(movimento);
+//				
+//		}
+//		
+//		model.addAttribute("generaMov",SingletonMovimentoBancomat.getInstance().getListaMovimenti().size());
+//		
+//		return "genera_movimenti";
+//	}
 	
 	@RequestMapping(value="/elimina-movimento", method = RequestMethod.GET)
 	public String eliminaMovimento(@ModelAttribute EliminaMovimentoRequest movimentoDaEliminare, Model model) {

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import srl.neotech.model.MovimentoBancomat;
 import srl.neotech.model.SingletonMovimentoBancomat;
+import srl.neotech.model.TipologiaMovimento;
 import srl.neotech.requestresponse.RequestSearchMovimento;
 import srl.neotech.requestresponse.ResponseSearchMovimento;
 
@@ -38,7 +39,7 @@ public class APIController {
 		
 		request.getMovimentazione().setId(UUID.randomUUID().toString());
 		request.getMovimentazione().setDataEora(dataFormattata);
-		request.getMovimentazione().setConto(ThreadLocalRandom.current().nextInt(1, 100000 + 1));
+	//	request.getMovimentazione().setConto(SingletonMovimentoBancomat.getInstance().getListaMovimenti() );
 		
 		ResponseSearchMovimento response= new ResponseSearchMovimento();
 		response.setMovimentiSearchResponse(SingletonMovimentoBancomat.getInstance().getListaMovimenti());

@@ -44,7 +44,7 @@ function showMessages() {
           <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
           <li><a class="dropdown-item" href="http://127.0.0.1:8080/BancomatWebApp/bank">Home</a></li>
             <li><a class="dropdown-item" href="http://127.0.0.1:8080/BancomatWebApp/vers">Versamento</a></li>
-            <li><a class="dropdown-item" href="http://127.0.0.1:8080/BancomatWebApp/generaMovimenti">Lista Movimenti</a></li>
+            <li><a class="dropdown-item" href="http://127.0.0.1:8080/BancomatWebApp/listamovimenti">Lista Movimenti</a></li>
           </ul>
         </li>
       </ul>

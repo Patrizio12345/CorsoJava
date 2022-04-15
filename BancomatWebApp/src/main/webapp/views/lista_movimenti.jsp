@@ -40,7 +40,34 @@
 
 <p style="color:white;">LISTA MOVIMENTI</p>
 
-<span class="d-block p-2 bg-dark text-white">Saldo :</span>
+<span class="d-block p-2 bg-dark text-white" id="saldo" >Saldo :</span>
+
+
+<script  type="text/javascript">
+var movimento.saldo = document.getElementById("saldo");
+movimento.saldo.innerHTML = slideCol.value;
+
+
+array.forEach(SingletonMovimentoBancomat.getInstance().getListaMovimenti().length => {
+	if(request.getMovimentazione().setOperazione(TipologiaMovimento.VERSAMENTO)){
+		movimento.saldo=movimento.taglio*movimento.quantita;
+	}else {
+		((movimento.taglio*movimento.quantita)=>request.getMovimentazione().setOperazione(TipologiaMovimento.PRELIEVO)){
+			if(movimento.saldo<request.getMovimentazione().setOperazione(TipologiaMovimento.PRELIEVO)){
+				document.write("ERROR!!!")
+			}else{
+				(movimento.saldo-request.getMovimentazione().setOperazione(TipologiaMovimento.PRELIEVO);
+			}
+		}
+	}
+	
+	
+	
+});
+
+
+</script>
+
 
 <!-- Tabella -->
 <p style="color:white;">Transazioni</p>
@@ -50,12 +77,11 @@
     <th scope="col">ID</th>
     <th scope="col">UUID</th>
       <th scope="col">Data-Ora</th>
-      <th scope="col">₿ Wallet</th>
       <th scope="col">Operazione</th>
       <th scope="col">Nominativo</th>
        <th scope="col">Taglio</th>
       <th scope="col">Quantità</th>
-      <th scope="col">₿ wallet dopo operazioni</th>
+     <th scope="col">₿ Wallet</th>
       <th scope="col">Canc</th>
     </tr>
   
@@ -66,12 +92,11 @@
      <td> <c:out value="${numMov}"/></td>
        <td> <c:out value="${movimento.id}"/></td>
       <td> <c:out value="${movimento.dataEora}"/></td>
-      <td> ₿ conto: <c:out value="${movimento.conto}"/></td>
-      <td> <c:out value="${movimento.operazione}"/></td>
+     <td> <c:out value="${movimento.operazione}"/></td>
      <td> <c:out value="${movimento.nominativo}"/></td>
      <td> <c:out value="${movimento.taglio}"/></td>
      <td> <c:out value="${movimento.quantita}"/></td>
-      <td>₿ conto attuale:</td>
+       <td> ₿ conto: <c:out value="${movimento.taglio*movimento.quantita}"/></td>
       <td><a href="elimina-movimento?id=<c:out value="${movimento.id}"/>"> <input class="myclass" type="button"  value="Delete"/></a></td>
     </tr>
     </c:forEach>
