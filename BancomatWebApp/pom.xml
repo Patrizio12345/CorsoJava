@@ -34,15 +34,7 @@
 		</dependency>
 		
 		
-		<!-- Generatore nomi autore -->
-
-<dependency>
-    <groupId>org.ajbrown</groupId>
-    <artifactId>name-machine</artifactId>
-    <version>1.0.0</version>
-</dependency>
-		
-		
+	
 		
 		
 		

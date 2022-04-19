@@ -1,16 +1,8 @@
 package srl.neotech.controllers;
 
-import java.sql.Date;
-import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
-import java.util.concurrent.ThreadLocalRandom;
 
-import org.ajbrown.namemachine.Name;
-import org.ajbrown.namemachine.NameGenerator;
+
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -29,13 +21,13 @@ import srl.neotech.requestresponse.ListaMovimentiResponse;
 public class ViewController {
 
 	
-	@RequestMapping(value="/ajax", method = RequestMethod.GET)
+	@RequestMapping(value="/prova_ajax", method = RequestMethod.GET)
 	public String ajax() {
-		return "ajax";
+		return "provaAjaxBancomat";
 	}
 	
 	
-	@RequestMapping(value="/bank", method = RequestMethod.GET)
+	@RequestMapping(value="/", method = RequestMethod.GET)
 	public String bank() {
 		return "home";
 	}
@@ -52,40 +44,7 @@ public class ViewController {
 	}
 
 		
-//	@RequestMapping(value="/generaMovimenti", method = RequestMethod.GET)
-//	public String generaMovimenti(Model model) {
-//	
-//	
-//		NameGenerator namegenerator = new NameGenerator();
-//		List<Name> names = namegenerator.generateNames( 5000 );
-//		
-//		
-//		
-//		
-//		for(int i=0;i<30;i++) {
-//			MovimentoBancomat movimento=new MovimentoBancomat();
-//			
-//			LocalDateTime myDateObj= LocalDateTime.now();
-//		    DateTimeFormatter myFormtObj=DateTimeFormatter.ofPattern("E, MMM dd yyyy HH:mm:ss");
-//		    String formattedDate = myDateObj.format(myFormtObj);  
-//			
-//			movimento.setId(UUID.randomUUID().toString());
-//			movimento.setDataEora(formattedDate);
-//			movimento.setConto(ThreadLocalRandom.current().nextInt(1, 100000 + 1));
-//			movimento.setNominativo(namegenerator.generateName().toString());
-//			movimento.setOperazione(TipologiaMovimento.generateRandomOperazione());
-//			movimento.setQuantita(ThreadLocalRandom.current().nextInt(1, 100000 + 1));
-//			movimento.setTaglio(ThreadLocalRandom.current().nextInt(1, 50 + 1));
-//			movimento.setTotale(null);
-//			
-//			SingletonMovimentoBancomat.getInstance().getListaMovimenti().add(movimento);
-//				
-//		}
-//		
-//		model.addAttribute("generaMov",SingletonMovimentoBancomat.getInstance().getListaMovimenti().size());
-//		
-//		return "genera_movimenti";
-//	}
+
 	
 	@RequestMapping(value="/elimina-movimento", method = RequestMethod.GET)
 	public String eliminaMovimento(@ModelAttribute EliminaMovimentoRequest movimentoDaEliminare, Model model) {
@@ -98,33 +57,22 @@ public class ViewController {
 	
 	
 	
-	
-	
-	
 	@RequestMapping(value="/listamovimenti", method = RequestMethod.GET)
 	public String listamovimenti(Model model) {
 		ListaMovimentiResponse response=new ListaMovimentiResponse();
 		response.setListaMovimentiRestituiti(SingletonMovimentoBancomat.getInstance().getListaMovimenti());
+
+		Integer valoreSaldo= new Integer(0);
+		for(MovimentoBancomat mov: SingletonMovimentoBancomat.getInstance().getListaMovimenti()) {
+			if(mov.getOperazione().equals(TipologiaMovimento.VERSAMENTO)) valoreSaldo=valoreSaldo+(mov.getQuantita()*mov.getTaglio());
+			if(mov.getOperazione().equals(TipologiaMovimento.PRELIEVO))   valoreSaldo=valoreSaldo-(mov.getQuantita()*mov.getTaglio());
+		}
+		
+		model.addAttribute("saldo", valoreSaldo);
 		model.addAttribute("moveWay", response);
 		return "lista_movimenti";
 	}
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	

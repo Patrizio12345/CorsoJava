@@ -12,11 +12,6 @@
 
 
  <script  type="text/javascript">
-function showMessage() {
-  alert("Check your count before continue!");
-}
-</script>
- <script  type="text/javascript">
 function showMessages() {
   alert("Invio effettuato con successo!");
 }
@@ -42,7 +37,7 @@ function showMessages() {
             Prelievo
           </a>
           <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-          <li><a class="dropdown-item" href="http://127.0.0.1:8080/BancomatWebApp/bank">Home</a></li>
+          <li><a class="dropdown-item" href="http://127.0.0.1:8080/BancomatWebApp/">Home</a></li>
             <li><a class="dropdown-item" href="http://127.0.0.1:8080/BancomatWebApp/vers">Versamento</a></li>
             <li><a class="dropdown-item" href="http://127.0.0.1:8080/BancomatWebApp/listamovimenti">Lista Movimenti</a></li>
           </ul>
@@ -58,25 +53,31 @@ function showMessages() {
 
 <!-- Nominativo -->
 <div class="p-2">
-<input  id="nominativo" path="nominativo"  class="form-control" placeholder="Nominativo" aria-label="Nominativo" aria-describedby="basic-addon1"/>
-</div>
-<!--Scelta -->
-<div class="d-grid gap-2 col-6 mx-auto">
-  <button class="btn btn-primary" onclick="showMessage()" type="button">25</button>
- 
-  <button class="btn btn-primary" onclick="showMessage()" type="button">50</button>
-  <button class="btn btn-primary" onclick="showMessage()" type="button">100</button>
-  <button class="btn btn-primary" onclick="showMessage()" type="button">Altro Importo <input  id="importo" path="importo"  class="form-control" placeholder="Importo..." aria-label="Importo" aria-describedby="basic-addon1"/></button>
-  <!-- Scelta Importo -->
-  
-  
-</div>
+<input  id="txt-nominativo1" path="nominativo" type="text" class="form-control" placeholder="Nominativo" aria-label="Nominativo" aria-describedby="basic-addon1"/>
 
+<!--Scelta -->
+
+<select class="form-select" id="importo" aria-label="Default select example">
+ 
+  <option selected>Importo</option>
+  <option value="1">25</option>
+  <option value="2">50</option>
+  <option value="3">100</option>
+  
+
+</select>
+
+<button id="altro_Importo">Altro Importo  </button>   <input type="number" id="altro_Importo" value="0"/>
+ 
+
+  
+</div>
+ 
 <!-- Invio -->
 
+</div>
 
-
-<button type="submit" id="bth-search" onclick="showMessages()"  class=" btn btn-primary btn-lg float-right">Invio</button><br>
+<button  id="btn-prelievo" class=" btn btn-primary btn-lg float-right">Invio</button><br>
 
 
 <!-- footer -->
@@ -90,7 +91,7 @@ function showMessages() {
           <span class="fs-5">SpaceProject</span>
         </a>
         <ul class="list-unstyled small text-muted">
-          <li class="mb-2">Designed and built with all the love in the world by the <a href="/docs/5.1/about/team/">SpaceProject team</a> with the help of <a href="https://github.com/Academy-Neotech">Neotech Academy</a>.</li>
+          <li class="mb-2">Designed and built with all the love in the world by the <a href="https://github.com/Patrizio12345/CorsoJava">SpaceProject team</a> with the help of <a href="https://github.com/Academy-Neotech">Neotech Academy</a>.</li>
           <li class="mb-2">Code licensed <a href="https://github.com/Patrizio12345/CorsoJava" target="_blank" rel="license noopener">MIT</a>, docs <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="license noopener">ZZ BY TOP/1.0</a>.</li>
           <li class="mb-2">Currently v0.0.1.</li>
           
@@ -153,6 +154,9 @@ function showMessages() {
 
 
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript" src="static/js/bancomat_ajax.js"></script>
+<script type="text/javascript" src="static/js/main.js"></script>
 
 
 

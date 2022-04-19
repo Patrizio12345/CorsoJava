@@ -1,16 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
 <!DOCTYPE html>
 <html>
 <head>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+ <link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css"/>
 <link  href="static/css/BancomatStyle.css" rel="stylesheet">
 <meta charset="UTF-8">
- <script  type="text/javascript">
-function showMessages() {
-  alert("Invio effettuato con successo!");
-}
-</script>
+ 
 <title>Versamento</title>
 </head>
 <body>
@@ -31,7 +28,7 @@ function showMessages() {
             Versamento
           </a>
           <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-            <li><a class="dropdown-item" href="http://127.0.0.1:8080/BancomatWebApp/bank">Home</a></li>
+            <li><a class="dropdown-item" href="http://127.0.0.1:8080/BancomatWebApp/">Home</a></li>
             <li><a class="dropdown-item" href="http://127.0.0.1:8080/BancomatWebApp/prel">Prelievo</a></li>
             <li><a class="dropdown-item" href="http://127.0.0.1:8080/BancomatWebApp/listamovimenti">Lista Movimenti</a></li>
           </ul>
@@ -43,12 +40,13 @@ function showMessages() {
 
 <p style="color:white;">VERSAMENTO</p>
 
-<form:form id="form_submit" action="registrazioneMovimenti" method="get" modelAttribute="operazione">
+
 <!-- Nominativo -->
- <input  id="nominativo" path="nominativo"  class="form-control" placeholder="Nominativo" aria-label="Nominativo" aria-describedby="basic-addon1"/>
+ <input  id="txt-nominativo" path="nominativo" type="text"  class="form-control" placeholder="Nominativo" aria-label="Nominativo" aria-describedby="basic-addon1"/>
+
 <!-- Taglio -->
 <div class="p-2">
- <select class="form-select" aria-label="Default select example">
+ <select class="form-select" id="taglio" aria-label="Default select example">
  
   <option selected>Taglio</option>
   <option value="1">10</option>
@@ -59,13 +57,12 @@ function showMessages() {
 <label for="customRange1" style="color:white;" class="form-label">Quantitativo Banconote:</label>
 <!-- Range quantità da 1a 100 -->
 <span id="valoreNumericoImporto" style="font-weight:bold;color:white;">50</span>
-<input type="range" class="slidecontainer" min="0" max="100" step="1" id="customRange1" >
-
+<input type="range" class="slidecontainer" min="0" max="100" step="1" id="rangeValore" >
 
 
 
 <script>
-var slideCol = document.getElementById("customRange1");
+var slideCol = document.getElementById("rangeValore");
 
 var y = document.getElementById("valoreNumericoImporto");
 y.innerHTML = slideCol.value;
@@ -82,12 +79,12 @@ slideCol.oninput = function() {
 
 <!-- Invio Importo -->
 
-<button  type="submit" id="bth-search" onclick="showMessages()"  class="btn btn-primary btn-lg float-right">Invio</button><br>
+ <button   id="btn-versamento"  class="btn btn-primary btn-lg float-right">Invio</button><br>
 
 
 
 
-</form:form>
+
 
 
 
@@ -102,7 +99,7 @@ slideCol.oninput = function() {
           <span class="fs-5">SpaceProject</span>
         </a>
         <ul class="list-unstyled small text-muted">
-          <li class="mb-2">Designed and built with all the love in the world by the <a href="/docs/5.1/about/team/">SpaceProject team</a> with the help of <a href="https://github.com/Academy-Neotech">Neotech Academy</a>.</li>
+          <li class="mb-2">Designed and built with all the love in the world by the <a href="https://github.com/Patrizio12345/CorsoJava">SpaceProject team</a> with the help of <a href="https://github.com/Academy-Neotech">Neotech Academy</a>.</li>
           <li class="mb-2">Code licensed <a href="https://github.com/Patrizio12345/CorsoJava" target="_blank" rel="license noopener">MIT</a>, docs <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="license noopener">ZZ BY TOP/1.0</a>.</li>
           <li class="mb-2">Currently v0.0.1.</li>
           
@@ -164,7 +161,9 @@ slideCol.oninput = function() {
 </footer>
 
 
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript" src="static/js/bancomat_ajax.js"></script>
+<script type="text/javascript" src="static/js/main.js"></script>
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

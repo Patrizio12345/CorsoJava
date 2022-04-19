@@ -95,7 +95,7 @@
           <span class="fs-5">SpaceProject</span>
         </a>
         <ul class="list-unstyled small text-muted">
-          <li class="mb-2">Designed and built with all the love in the world by the <a href="/docs/5.1/about/team/">SpaceProject team</a> with the help of <a href="https://github.com/Academy-Neotech">Neotech Academy</a>.</li>
+          <li class="mb-2">Designed and built with all the love in the world by the <a href="https://github.com/Patrizio12345/CorsoJava">SpaceProject team</a> with the help of <a href="https://github.com/Academy-Neotech">Neotech Academy</a>.</li>
           <li class="mb-2">Code licensed <a href="https://github.com/Patrizio12345/CorsoJava" target="_blank" rel="license noopener">MIT</a>, docs <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="license noopener">ZZ BY TOP/1.0</a>.</li>
           <li class="mb-2">Currently v0.0.1.</li>
           

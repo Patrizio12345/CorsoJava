@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+ <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
 <!DOCTYPE html>
 <html>
 <head>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+ <link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css"/>
 <link  href="static/css/BancomatStyle.css" rel="stylesheet" >
 <meta charset="UTF-8">
 <title>Report Movimenti</title>
@@ -27,7 +28,7 @@
             Lista Movimenti
           </a>
           <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-          <li><a class="dropdown-item" href="http://127.0.0.1:8080/BancomatWebApp/bank">Home</a></li>
+          <li><a class="dropdown-item" href="http://127.0.0.1:8080/BancomatWebApp/">Home</a></li>
             <li><a class="dropdown-item" href="http://127.0.0.1:8080/BancomatWebApp/vers">Versamento</a></li>
             <li><a class="dropdown-item" href="http://127.0.0.1:8080/BancomatWebApp/prel">Prelievo</a></li>
            </ul>
@@ -40,38 +41,16 @@
 
 <p style="color:white;">LISTA MOVIMENTI</p>
 
-<span class="d-block p-2 bg-dark text-white" id="saldo" >Saldo :</span>
+<span class="d-block p-2 bg-dark text-white" id="saldo" >Saldo :<c:out value="${saldo}"/> </span>
 
 
-<script  type="text/javascript">
-var movimento.saldo = document.getElementById("saldo");
-movimento.saldo.innerHTML = slideCol.value;
-
-
-array.forEach(SingletonMovimentoBancomat.getInstance().getListaMovimenti().length => {
-	if(request.getMovimentazione().setOperazione(TipologiaMovimento.VERSAMENTO)){
-		movimento.saldo=movimento.taglio*movimento.quantita;
-	}else {
-		((movimento.taglio*movimento.quantita)=>request.getMovimentazione().setOperazione(TipologiaMovimento.PRELIEVO)){
-			if(movimento.saldo<request.getMovimentazione().setOperazione(TipologiaMovimento.PRELIEVO)){
-				document.write("ERROR!!!")
-			}else{
-				(movimento.saldo-request.getMovimentazione().setOperazione(TipologiaMovimento.PRELIEVO);
-			}
-		}
-	}
-	
-	
-	
-});
-
-
-</script>
 
 
 <!-- Tabella -->
 <p style="color:white;">Transazioni</p>
-<table class="table table-dark table-striped">
+
+
+<table class="table table-dark table-striped" id="listaMovId">
  
     <tr>
     <th scope="col">ID</th>
@@ -81,27 +60,33 @@ array.forEach(SingletonMovimentoBancomat.getInstance().getListaMovimenti().lengt
       <th scope="col">Nominativo</th>
        <th scope="col">Taglio</th>
       <th scope="col">Quantità</th>
-     <th scope="col">₿ Wallet</th>
+     <th scope="col">₿ Wallet (Conto) </th>
       <th scope="col">Canc</th>
     </tr>
   
- <c:set var="numMov" scope="session" value="0"/>
-  <c:forEach var="movimento" items="${moveWay.listaMovimentiRestituiti}">
-   <c:set var="numMov" scope="session" value="${numMov+1}"/>
-    <tr>
-     <td> <c:out value="${numMov}"/></td>
-       <td> <c:out value="${movimento.id}"/></td>
-      <td> <c:out value="${movimento.dataEora}"/></td>
-     <td> <c:out value="${movimento.operazione}"/></td>
-     <td> <c:out value="${movimento.nominativo}"/></td>
-     <td> <c:out value="${movimento.taglio}"/></td>
-     <td> <c:out value="${movimento.quantita}"/></td>
-       <td> ₿ conto: <c:out value="${movimento.taglio*movimento.quantita}"/></td>
-      <td><a href="elimina-movimento?id=<c:out value="${movimento.id}"/>"> <input class="myclass" type="button"  value="Delete"/></a></td>
-    </tr>
-    </c:forEach>
+  <c:set var="numMov" scope="session" value="0"/> 
+   <c:forEach var="movimento" items="${moveWay.listaMovimentiRestituiti}"> 
+    <c:set var="numMov" scope="session" value="${numMov+1}"/> 
+     <tr> -->
+      <td> <c:out value="${numMov}"/></td> 
+        <td> <c:out value="${movimento.id}"/></td> 
+       <td> <c:out value="${movimento.dataEora}"/></td> 
+      <td> <c:out value="${movimento.operazione}"/></td> 
+      <td> <c:out value="${movimento.nominativo}"/></td> 
+      <td> <c:out value="${movimento.taglio}"/></td> 
+      <td> <c:out value="${movimento.quantita}"/></td> 
+        <td> ₿ Wallet: <c:out value="${movimento.taglio*movimento.quantita}"/></td> 
+       <td><a href="elimina-movimento?id=<c:out value="${movimento.id}"/>"> <input class="myclass" type="button"  value="Delete"/></a></td> 
+     </tr> 
+     </c:forEach> 
+  
+  
   
 </table>
+<div>
+<div id="text-feedback"></div>
+  
+</div>
 
 
 <!-- footer -->
@@ -115,7 +100,7 @@ array.forEach(SingletonMovimentoBancomat.getInstance().getListaMovimenti().lengt
           <span class="fs-5">SpaceProject</span>
         </a>
         <ul class="list-unstyled small text-muted">
-          <li class="mb-2">Designed and built with all the love in the world by the <a href="/docs/5.1/about/team/">SpaceProject team</a> with the help of <a href="https://github.com/Academy-Neotech">Neotech Academy</a>.</li>
+          <li class="mb-2">Designed and built with all the love in the world by the <a href="https://github.com/Patrizio12345/CorsoJava">SpaceProject team</a> with the help of <a href="https://github.com/Academy-Neotech">Neotech Academy</a>.</li>
           <li class="mb-2">Code licensed <a href="https://github.com/Patrizio12345/CorsoJava" target="_blank" rel="license noopener">MIT</a>, docs <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="license noopener">ZZ BY TOP/1.0</a>.</li>
           <li class="mb-2">Currently v0.0.1.</li>
           
@@ -177,6 +162,9 @@ array.forEach(SingletonMovimentoBancomat.getInstance().getListaMovimenti().lengt
 </footer>
 
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript" src="static/js/bancomat_ajax.js"></script>
+<script type="text/javascript" src="static/js/main.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </html>

@@ -1,20 +1,18 @@
 package srl.neotech.model;
 
 
-
-
 public class MovimentoBancomat {
 	
 	private String nominativo;
 	private String id;
 	private String dataEora;
 	private TipologiaMovimento operazione;
-	private String operation;
 	private Integer taglio;
 	private Integer quantita;
 	private Integer totale;
 	private Integer conto;
 	private Integer saldo;
+	private Integer altroImporto;
  	
 	
 	public String getId() {
@@ -34,8 +32,6 @@ public class MovimentoBancomat {
 	}
 	
 	
-	
-	
 	public Integer getSaldo() {
 		return saldo;
 	}
@@ -48,12 +44,7 @@ public class MovimentoBancomat {
 	public void setConto(Integer conto) {
 		this.conto = conto;
 	}
-	public String getOperation() {
-		return operation;
-	}
-	public void setOperation(String operation) {
-		this.operation = operation;
-	}
+	
 	public TipologiaMovimento getOperazione() {
 		return operazione;
 	}
@@ -86,6 +77,16 @@ public class MovimentoBancomat {
 	}
 	
 	
+	
+	
+	
+	
+	public Integer getAltroImporto() {
+		return altroImporto;
+	}
+	public void setAltroImporto(Integer altroImporto) {
+		this.altroImporto = altroImporto;
+	}
 	public boolean equals(MovimentoBancomat obj) {
 		if(obj == null) return false;
 		if(obj == this) return true;
