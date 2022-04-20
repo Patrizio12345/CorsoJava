@@ -65,7 +65,13 @@ public class ViewController {
 		Integer valoreSaldo= new Integer(0);
 		for(MovimentoBancomat mov: SingletonMovimentoBancomat.getInstance().getListaMovimenti()) {
 			if(mov.getOperazione().equals(TipologiaMovimento.VERSAMENTO)) valoreSaldo=valoreSaldo+(mov.getQuantita()*mov.getTaglio());
-			if(mov.getOperazione().equals(TipologiaMovimento.PRELIEVO))   valoreSaldo=valoreSaldo-(mov.getQuantita()*mov.getTaglio());
+			 if( mov.getOperazione().equals(TipologiaMovimento.PRELIEVO )) {
+			    	if(mov.getAltroImporto().intValue()>0) {
+			    		valoreSaldo=valoreSaldo-mov.getAltroImporto();
+			    	}else {
+			    	valoreSaldo=valoreSaldo-(mov.getQuantita()*mov.getTaglio());
+			    	}
+			    }
 		}
 		
 		model.addAttribute("saldo", valoreSaldo);

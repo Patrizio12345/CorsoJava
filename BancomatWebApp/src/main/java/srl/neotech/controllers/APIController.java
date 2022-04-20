@@ -30,8 +30,8 @@ public class APIController {
 	
 	@ResponseBody
 	@PostMapping(value = "/api/movimento_add", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseSearchMovimento search(@RequestBody RequestSearchMovimento request) {
-		
+	public void add(@RequestBody RequestSearchMovimento request) {
+	//	ResponseSearchMovimento response= new ResponseSearchMovimento();
 		
 		LocalDateTime oggettoData= LocalDateTime.now();
 	    DateTimeFormatter formattaOggetto=DateTimeFormatter.ofPattern("E, MMM dd yyyy HH:mm:ss");
@@ -43,24 +43,26 @@ public class APIController {
 		
 	    SingletonMovimentoBancomat.getInstance().getListaMovimenti().add(request.getMovimentazione());
 	    
-         
-		Integer valoreSaldo= new Integer(0);
-		for(MovimentoBancomat mov: SingletonMovimentoBancomat.getInstance().getListaMovimenti()) {
-			if(mov.getOperazione().equals(TipologiaMovimento.VERSAMENTO.toString())) valoreSaldo=valoreSaldo+(mov.getQuantita()*mov.getTaglio());
-		    if( mov.getOperazione().equals(TipologiaMovimento.PRELIEVO.toString() )) valoreSaldo=valoreSaldo-(mov.getQuantita()*mov.getTaglio());
-//		    if( mov.getOperazione().equals(TipologiaMovimento.PRELIEVO.toString().compareTo(valoreSaldo.toString())>valoreSaldo )) {
-//		    	mov.getOperazione().equals(TipologiaMovimento.PRELIEVO.toString().equals(0));
-//		    }else {
-//		    	 valoreSaldo=valoreSaldo-(mov.getQuantita()*mov.getTaglio());
-//			}
-		}
+//         
+//		Integer valoreSaldo= new Integer(0);
+//		for(MovimentoBancomat mov: SingletonMovimentoBancomat.getInstance().getListaMovimenti()) {
+//			if(mov.getOperazione().equals(TipologiaMovimento.VERSAMENTO)) valoreSaldo=valoreSaldo+(mov.getQuantita()*mov.getTaglio());
+//		    if( mov.getOperazione().equals(TipologiaMovimento.PRELIEVO )) {
+//		    	if(mov.getAltroImporto().intValue()>0) {
+//		    		valoreSaldo=valoreSaldo-mov.getAltroImporto();
+//		    	}else {
+//		    	valoreSaldo=valoreSaldo-(mov.getQuantita()*mov.getTaglio());
+//		    	}
+//		    }
+//
+//		}
+//		
+//		
+		
+//		response.setMovimentiSearchResponse(SingletonMovimentoBancomat.getInstance().getListaMovimenti());
 		
 		
-		ResponseSearchMovimento response= new ResponseSearchMovimento();
-		response.setMovimentiSearchResponse(SingletonMovimentoBancomat.getInstance().getListaMovimenti());
-		
-		
-		return response;
+	//	return response;
 	}
 	
 	@ResponseBody

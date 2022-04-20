@@ -60,14 +60,14 @@ function showMessages() {
 <select class="form-select" id="importo" aria-label="Default select example">
  
   <option selected>Importo</option>
-  <option value="1">25</option>
-  <option value="2">50</option>
-  <option value="3">100</option>
+  <option value="25">25</option>
+  <option value="50">50</option>
+  <option value="100">100</option>
+  <option value="0">AltroImporto</option>
   
-
 </select>
+ <input type="number" id="altro_importo_num" value="0"/>
 
-<button id="altro_Importo">Altro Importo  </button>   <input type="number" id="altro_Importo" value="0"/>
  
 
   

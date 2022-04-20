@@ -75,7 +75,12 @@
       <td> <c:out value="${movimento.nominativo}"/></td> 
       <td> <c:out value="${movimento.taglio}"/></td> 
       <td> <c:out value="${movimento.quantita}"/></td> 
-        <td> ₿ Wallet: <c:out value="${movimento.taglio*movimento.quantita}"/></td> 
+      <c:if test="${movimento.taglio==0}">
+        <td> ₿ Wallet: <c:out value="${movimento.altroImporto}"/></td> 
+      </c:if>
+      <c:if test="${movimento.taglio!=0}">
+     <td> ₿ Wallet: <c:out value="${movimento.taglio*movimento.quantita}"/></td> 
+     </c:if>
        <td><a href="elimina-movimento?id=<c:out value="${movimento.id}"/>"> <input class="myclass" type="button"  value="Delete"/></a></td> 
      </tr> 
      </c:forEach> 

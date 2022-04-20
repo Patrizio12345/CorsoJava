@@ -57,12 +57,15 @@ $(document).ready(function () {
    //registro evento pulsante search	
    $('#btn-prelievo').click(function (event) {   
     //preparo la request in json
+     var importo=0;
+    if($( "#importo option:selected").text()=="AltroImporto") importo=$("#altro_importo_num").val();
+    else importo=$( "#importo option:selected").text();
     var requestData = {
 	    'movimentazione':{
 		  'quantita':1,
-          'altroImporto':$("#altro_Importo").val(),
+          'altroImporto':importo,
 		  'operazione':"PRELIEVO",
-		  'taglio':$( "#importo option:selected").text(),
+		  'taglio':$( "#importo option:selected").val(),
 		  'nominativo':$('#txt-nominativo1').val()
 	    }
      };
