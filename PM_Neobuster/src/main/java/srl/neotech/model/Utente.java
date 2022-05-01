@@ -1,6 +1,7 @@
 package srl.neotech.model;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class Utente {
@@ -9,7 +10,7 @@ public class Utente {
 	private StatoUtente statoUtente;
 	private String nominativo;
 	private LocalDate dataNascita;
-	private LocalDate dataRegistrazione;
+	private LocalDateTime dataRegistrazione;
 	private ArrayList<Video>listaNoleggio=new ArrayList<Video>();
 	private ArrayList<Video> listaAcquisto=new ArrayList<Video>();
 	
@@ -38,10 +39,12 @@ public class Utente {
 	public void setDataNascita(LocalDate dataNascita) {
 		this.dataNascita = dataNascita;
 	}
-	public LocalDate getDataRegistrazione() {
+	 
+	
+	public LocalDateTime getDataRegistrazione() {
 		return dataRegistrazione;
 	}
-	public void setDataRegistrazione(LocalDate dataRegistrazione) {
+	public void setDataRegistrazione(LocalDateTime dataRegistrazione) {
 		this.dataRegistrazione = dataRegistrazione;
 	}
 	public ArrayList<Video> getListaNoleggio() {
